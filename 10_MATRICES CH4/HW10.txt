@@ -1,0 +1,58 @@
+//AUTHOR:	DAN CRISP
+//CHAPTER 4
+//PROBLEMS: Questions 1-6
+
+#Q1 Matrix, max/min
+matrix_minmax.m
+	% Make matrix
+	A = rand(3,3);
+
+	% Process
+	[M, N] = size(A);
+	A = reshape(A,M*N,1);
+	Amin = min(A);
+	Amax = max(A);
+	
+	% Display
+	fprintf('The matrix min is: %2.2f\n', Amin);
+	fprintf('The matrix max is: %2.2f\n\n', Amax);
+
+	
+#Q2
+Create vector 1 by 25 containing random elements uniformly distributed in the interval [-0.5, 0.5]. Then generate and display a random signal of length 100 with elements uniformly distributed in the interval [-2,2]
+
+	vector = rand(25,1)-0.5;
+	signal = 4*(rand(100,1)-0.5);
+	bar(signal); hist(signal);
+
+	
+#Q3
+Create 3*3 matrix. Extract the 1'st and the 2'nd row with the 1'st and 3'th column
+
+	A = rand(3);
+	B = [A(1:2,1),A(1:2,3)];
+	
+	
+#Q4
+Create 3*3 matrix of 0's and 1's. Find the indices for the zeros
+
+		A = round(rand(3));
+		[ nr , nc ] = size(A);
+		[ indices ] = find(ones( nr , nc )-A,9);
+		
+
+#Q5
+Create a vector x containing integer number from 1 to 100. Create a vector containing 1, 0.9, 0.8, 0.7 ... 0.1
+
+	x = 1:1:100;
+	a = 1:-0.1:0.1;
+
+
+#Q6
+Create a vector x = [3, 1, 2, 5, 4]. From x create y containing the same elements in the reverse order, find indices of elements greater than 2, create z containing elements of x which are smaller than 4.
+
+	x = [3,1,2,5,4];
+	y = fliplr(x);
+	indices = y > 2;
+	z = (x < 4).*x;
+	

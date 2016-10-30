@@ -1,0 +1,39 @@
+
+PROBLEM 3a
+	>>syms x; f = 3*x^4 - 16*x^3 + 18*x^2
+		f = 3*x^4 - 16*x^3 + 18*x^2
+	
+	>>critPts = solve(diff(f,x))
+		critPts = (0, 1, 3)
+
+	>>ezplot(f,[-2,5])
+	
+	#verifying I found the right values of x for crit points, and that when substituting into f, they match with what I see on my ezplot
+	>>verify(1:3) = subs(diff(f,x),x,critPts(1:3))
+		verify = [ 0, 0, 0]
+	
+	>>fvalAtCritPts(1:3) = subs(f,x,critPts(1:3))
+		fvalAtCritPts = [ 0, 5, -27]
+
+PROBLEM 3b
+	>>syms x; f = x^2 - 6*x - 7
+		f = x^2 - 6*x - 7
+	
+	>>theZeros = roots(sym2poly(f))
+		theZeros = [ 7, -1]
+	
+	#verifying theZeros w/ substitution
+	>>verify(1:length(theZeros)) = subs(f,x,theZeros)
+		verify = [ 0, 0]
+	
+PROBLEM 3c
+	>>syms x y; f = cos(x)*sin(x)*exp(-sqrt((x^2 + y^2)/4))
+		f = exp(-(x^2/4 + y^2/4)^(1/2))*cos(x)*sin(x)
+	
+	>>pretty(f)
+		   /      /  2    2 \ \
+		   |      | x    y  | |
+		exp| -sqrt| -- + -- | | cos(x) sin(x)
+		   \      \  4    4 / /
+
+	>>ezcontourf(f)

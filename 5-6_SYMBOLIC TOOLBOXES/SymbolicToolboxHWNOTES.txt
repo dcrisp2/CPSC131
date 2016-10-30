@@ -1,0 +1,21 @@
+//SymbolicToolboxAssignment:
+
+#Q1
+Syms x; f = (x^2 - 4*x)*(x^2 - 4*x + 1) – 20;
+	a
+		a = expand(f)
+	b
+		b = simplify(f/(x^2 – 4*x – 4))
+	c
+		c = factor(f)
+	d
+		d = roots(sym2poly(f))
+			4.8284 + 0.0000i
+			2.0000 + 1.0000i
+			2.0000 - 1.0000i
+			-0.8284 + 0.0000i
+	e
+		e = subs(f,x,d(2))
+	f
+		F = limit(f,x,-1)
+

@@ -1,0 +1,16 @@
+Need to finish:
+	HW1 Basic Excel
+		Request new grade
+	HW2 Matrices
+	HW3 Linear Programming.
+		DESC:	Given a number of items, come up for solutions that meet limiting requirements.
+		File: 	HW3_Linear__crispd
+		Ref:	
+	HW4	Linear Regression
+		
+	HW5(EZplot.docx) from (WK3 SYMBOLIC).
+		REF: 	EZplot.docx
+		File:	
+	HW6 SYMBOLIC TOOLBOX 1 (SEPT 16)
+	HW7 SYMBOLIC TOOLBOX 2 (SEPT 22)
+	

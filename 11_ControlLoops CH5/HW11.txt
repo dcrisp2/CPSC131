@@ -1,0 +1,164 @@
+//AUTHOR:	DAN CRISP
+//CHAPTER 5
+//PROBLEMS: 5.4, 5.7, 5.9, 5.20, Factorial, Insurance
+
+#Q1: 5.4 Fibonacci numbers
+Starting from fib(1)=0 and fib(2)=1, write a program, fibonacci.m, that computes the first N fibonacci numbers and their sum.
+	function [ fib, fibsum ] = fibonacci( n )
+	% fibonacci.m Outputs first 'n' fibonacci numbers...
+
+		fib(1) = 0;
+		fib(2) = 1;
+
+		for i=3:n;
+			fib(i) = fib(i-2) + fib(i-1);
+		end
+		fibsum = sum(fib());
+	end
+	
+[fib, fibsum] = fibonacci(6)
+fib =
+	0	1	1	2	3	5
+fibsum =
+	12
+
+#Q2: 5.7 Finding prime numbers
+	function primes = findprimes( num )
+		% findprimes reads an integer num >=3, and prints all prime numbers between 3 and that number.
+		count = 1;
+
+		primes(1) = 3;
+		for i = 3:num
+			for k = 2:floor(sqrt(i))
+				if mod(i,k)==0
+					k = i;
+					break;
+				elseif k==floor(sqrt(i))
+					primes(length(primes)+1) = i;
+				end
+				count = count +1 ;
+			end
+		end
+	end
+	
+	primes = findprimes(10)
+	
+	primes =
+		3	5	7
+
+
+#Q3: 5.9 First Pi approximation
+Compute the sum for N = 100, 1000, 1 x 10^6, and 1 x 10^7.
+	function [val] = pival( N )
+		% pival Calculates the value of pi using the solution to the basel sum. pi^2/6 = sum(1:1/i^2:N)
+		baselsum = 0;
+		for i = 1:N
+			baselsum = baselsum + 1/(i^2);
+		end
+	
+		val = sqrt(baselsum*6);
+	end
+
+[ val ] = pival(100)
+	= 3.1321
+[ val ] = pival(1000)
+	= 3.1406
+[ val ] = pival(1000000)
+	= 3.1416
+
+	
+#Q4: 5.20 Monte Carlo Integration
+function [ Points, Area ] = MonteCarloCircle( radmax, k )
+    %pival_carlo Does monte carlo simulation to estimate the value of pi.
+    %midx and midy are the middle points to the populated object (square
+    %and circle), and radmax is the maximum radius of the circle and half
+    %the total length||width of the square. k determines number of data
+    %points as 10^k.
+    
+    Points = 10^k;
+    
+    x = 2*radmax*(rand(Points,1));
+    y = 2*radmax*(rand(Points,1));
+    figure('color','white');
+    hold all
+    
+    x1 = x-radmax;
+    y1 = y-radmax;
+    radius_from_center = sqrt(x1.^2+y1.^2);
+    m = 0;
+    axis square;
+    for i=1:Points
+        if radius_from_center(i)<=radmax
+            m=m+1;
+            plot(x(i),y(i),'b.');
+        else
+            plot(x(i),y(i),'r.');
+        end
+    end
+
+    Area = m*4*radmax^2/Points;
+end
+
+for k=1:7 [ Points(k), Area(k)] = MonteCarloCircle( 1, k); end
+k = 1:1:7;
+table(k',Points',Area','VariableNames',{'Input_k' 'Points' 'Area'})
+
+    Input_k    Points     Area 
+    _______    ______    ______
+
+    1             10          4
+    2            100       3.08
+    3           1000       3.14
+    4          10000     3.1708
+    5          1e+05     3.1432
+    6          1e+06     3.1467
+    7          1e+07     3.1413
+
+
+
+#Q5: Write a program to calculate a factorial of any number N
+	function [x] = FindFact(N)
+		x = N:-1:0;
+		x(N+2)=1;
+		for i=1:N
+			x(N+2) = x(N+2)*x(i);
+		end
+	end
+	
+[x] = FindFact(5)
+ans =
+	[5, 4, 3, 2, 1, 0, 120]
+		
+		
+#Q6:
+	% InsurancePremium.m Calculates the cost of automobile insurance based on a users' age and number of accidents.
+	
+	% Clear Screen
+	clc;
+
+	% Request user's age & init vars
+	age = input('Please enter your age: ');
+	incidents = input('How many accidents have you had in the past year?');
+	premium = 500;
+	SubCharge = 200;
+	
+	% Process
+	if age < 25
+		premium = premium + 100;
+	end
+	
+	if incidents > 0
+		premium = premium + incidents*SubCharge;
+	end
+
+	% Display
+	fprintf('\nYour Premium is $%3.2f\n\n', premium);
+
+
+script = 'InsurancePremium.m'; run(script);
+Please enter your age: 27
+How many accidents have you had in the past year?2
+	
+Your Premium is $900
+	
+	

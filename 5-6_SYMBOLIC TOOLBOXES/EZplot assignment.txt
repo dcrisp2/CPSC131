@@ -1,0 +1,70 @@
+//AUTHOR: DAN CRISP
+//EZplot assignment
+
+#Q1
+Use ezplot to plot the following function in the closed interval [0,A*pi], f(x) = exp(-0.1x)sin(x). Using a function you define to input A and get an ezplot output.
+	function plot_ez(fig,a)
+		syms x;
+		y = exp(-0.1*x)*sin(x);
+		figure(fig);
+		ezplot(y,[0,a*pi]);
+	End
+
+	>>plot_ez(1,2); plot_ez(2,4)
+	
+	The displayed domain of the function changes from 0-2pi, to 0-4pi. Though they are the same function--same amplitude, period and exponential decay--the decay is more apparent in the figure where more periods fit into the displayed domain.
+
+#Q2
+Use ezplot to plot the polynomial and it's roots: (x) = -2x^2 + 5x + 4. Turn grid on. Label roots lower and upper in plot.
+	>> f = -2*x^2 + 5*x+4; theRoots = roots(sym2poly(f))
+		theRoots = (-0.6375,3.1375)
+	>> ezplot(f)
+
+
+#Q3
+Use ezplot to plot the following function in the interval[-6,6], set the limit for the y-axis to [-9,9]. f(x,y)=-2x^2 y^2+5 x^2 y-4xy^2+16xy+4x+8y+16
+	>> syms x y; f(x,y)=-2*(x^2)*(y^2)+5*(x^2)*y-4*x*(y^2)+16*x*y+4*x+8*y+16; ezplot(f,[-6,6],[-9,9])
+
+#Q4
+Use ezplot3 to create a 3D curve for the following relationship in the interval [-9pi,9pi].
+	>> syms t; x1 = exp(0.1*t)*sin(t); x2 = exp(0.1*t)*sin(t); x3 = t; ezplot3(x1,x2,x3,[-9*pi,9*pi])
+
+#Q5
+Use ezsurf and ezmesh to make a 3D surface plot of the following function z(x,y) = 6〖(y^2-x^2)〗^3 〖+(1-y)〗^6.
+	>> syms x y; z(x,y) = 6*(y^2 - x^2)^3+(1-y)^6; ezsurf(z); ezmesh(z)
+
+#Q6
+Use ezpolar to plot the following: 1 + 2*sin(2*phi)^2, for phi==[0,2*pi].
+	>> polEquation = sym(‘1 + 2*sin(2*phi)^2’); ezpolar(polEquation)
+	
+#Q7
+Plot the contours of f(x) = (cos(x)*cos(y))exp(-sqrt((x^2+y^2)/4)).
+	>> syms x y; f(x) = (cos(x)*cos(y))*exp(-sqrt((x^2 + y^2)/4)); ezcontourf(f)
+	
+#Q8
+Write a symbolic script to solve the following: Find the point when the curve y = x^3 - 3*x + 4 and y = 3(x^2-x) are tangent to each other, illustrate by sketching both curves and the common tangent line. Comment on your script.
+	
+I wrote a function, because I saw utility in having one to do this, whereas a script with unique lines may be less so. Making this into a script would not be difficult.
+Below is the function, but what I would enter into the command line so have it answer Q8 is this...
+	>> clc, clear; syms z; y1 = z^3 - 3*z + 4; y2 = 3*(z^2-z); draw_tangents(y1,y2,z)
+
+Here is the code in draw_tangents.m:
+	function draw_tangents(y1,y2,var)
+		ezplot(y1); hold on;
+		ezplot(y2);
+		y1diffx = diff(y1,var);
+		y2diffx = diff(y2,var);
+		sameSlopeAt = solve(sym(y1diffx==y2diffx),var);
+		n = length(sameSlopeAt);
+		slopes(1:n)=subs(y2diffx,var,sameSlopeAt(1:n));
+		
+		for i = 1:n
+		
+			if subs(y1,var,sameSlopeAt(i))==subs(y2,var,sameSlopeAt(i))
+				yOffset(i) = subs(y1,var,sameSlopeAt(i))-slopes(i)*sameSlopeAt(i);
+				TangentEquation(i) = slopes(i)*var + yOffset(i); ezplot(TangentEquation(i));
+			end
+		end
+    
+    hold off;
+	end

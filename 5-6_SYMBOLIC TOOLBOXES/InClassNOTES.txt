@@ -1,0 +1,50 @@
+LINEAR PROGRAMMING
+Due Sep 9, 2016 11:55 PM
+
+LINEAR REGRESSION
+Due Sep 14, 2016 11:55 PM
+
+syms x
+	defines as symbolic
+f=inline('x^2+2*x','x')
+f(2)
+	ans=8
+
+
+syms x
+diff(f(x),x)
+	ans= 2*x + 2
+int(f(x),x)
+pretty(ans)
+syms x
+y=(x+2)*(x-3)
+expand(y)
+factor(ans)
+
+syms x y
+y = x^2 + 2*x - 3
+solve(y==12)
+	-5
+	3
+
+a=[1,3,2]; b=poly2sym(a)
+	b = x^2 + 3*x + 2
+
+c=sym('5*x^2 + 2*x -2'); d = sym2poly(c)
+	d = 5     2    -2
+
+syms t; f=inline('exp(t) - t^4'); f(-0.2)
+syms x; 
+
+QUESTION 8?
+y1 =
+y2 =
+Dy1 =
+Dy2 = 
+solve(Dy1-Dy2,x)
+ezplot(y1)
+ezplot(y2)
+subs() to find the slope @2*xsubs() to find y coordinate
+write your equation (y - ycoord) = slope(x-2)
+ezplot(tangent equation)
+

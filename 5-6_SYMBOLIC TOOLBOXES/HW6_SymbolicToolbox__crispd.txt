@@ -1,0 +1,64 @@
+//AUTHOR: DAN CRISP
+//SymbolicToolboxAssignment
+
+#Q1
+	>> Syms x; f = (x^2 - 4*x)*(x^2 - 4*x + 1) – 20;
+	>> a = expand(f)
+		x^4 - 8*x^3 + 17*x^2 - 4*x - 20
+	>> b = simplify(f/(x^2 – 4*x – 4))
+		x^2 - 4*x + 5
+	>> c = factor(f)
+		[ x^2 - 4*x + 5, x^2 - 4*x - 4]
+	>> d = roots(sym2poly(f))
+		4.8284 + 0.0000i
+		2.0000 + 1.0000i
+		2.0000 - 1.0000i
+		-0.8284 + 0.0000i
+	>> e = subs(f,x,d(2))
+		0
+	>> F = limit(f,x,-1)
+		10
+#Q2
+Determine the polynomial that has the following roots: 4, -2, 1, 0
+	>> syms x; theRoots=[4, -2, 1, 0]; theEquation = poly2sym(poly(theRoots))
+		x^4 - 3*x^3 - 6*x^2 + 8*x
+
+#Q3
+Solve the following system.
+	>> syms x y z; one = sym('x+3*y-z=2'); two = sym('x-y+z=3'); three = xym('3*x-5*y=4');
+	>> [x,y,z] = solve(symVector)
+		x = 33/16
+		y = 7/16
+		z = 11/8
+
+#Q4
+Find the values of x where the graph of y = 3^x - 3x has a horizontal tangent line. For each point found, determine whether the function has a max, min or neither there. Give decimal answers.
+	>> syms x; y = 3^x - 3*x; ydiffx = diff(y,x); critpt = solve(ydiffx)
+		critpt = (log(3) - log(log(3)))/log(3)
+	>> subs_check = subs(ydiffx,x,critpts)
+		subs_check = 3^((log(3) - log(log(3)))/log(3))*log(3) - 3
+	>> simplify(subs_check)
+		subs_check = 0
+
+#Q5
+Ship A is traveling north at 6 mph and ship B is traveling west at 12 mph. When ship A was dead ahead of ship B, it was 6 miles away. Determine the minimum distance between the ships.
+	>> syms t; Avy = 6*t; Bvx = -12*t+6; dist = sqrt(Avy^2 + Bvx^2)
+		6*((12*t - 6)^2/36 + t^2)^(1/2)
+	>> difft = diff(dist,t)
+		difft = (3*(10*t - 4))/((12*t - 6)^2/36 + t^2)^(1/2)
+	>> tmin = solve(difft)
+		tmin = 2/5
+	>> distMin = subs(dist,t,tmin)
+		distMin = (6*5^(1/2))/5
+
+At 0.4 hours, the two ships were 2.6833 miles apart.
+
+#Q6
+A ceramic tile has the design show in the figure. The border between the red and white areas has the equation y = A sin(pi*x/15). Determine the value of A (find the exact and decimal approximation) such that the white area equals the red area.
+	>> syms A x; Area = 15*5; y = A*sin(pi*x/15); red = int(y,x,0,15)
+		red = (30*A)/pi
+	>> white = Area - red; Answer-A = solve(sym(white==red))
+		Answer = (5*pi)/4
+CHECK:
+	>> subs(white,A,Answer) = 75/2
+	>> subs(red,A,Answer) = 75/2

@@ -1,0 +1,30 @@
+//AUTHOR:	DAN CRISP
+//BISECTION
+
+#Q1
+% Initialize vars
+mass = 65; v0 = 35; g = 9.81; x1 = 0.2; x0 = 0.3; good = 0.02;
+t = 4.5;
+syms t c;
+v = sqrt(g*mass/c)*tanh(t*sqrt(g*c/mass));
+c = solve(subs(v,t,4.5)==v0)
+	c =
+		-98.51
+
+...From power point. Need sleep to translate.
+% tol = 0.00000001;
+% low = input('lower limit');
+% high = input('upper limit');
+% while(high-low>tol)
+%     mid = (high+low)/2;
+%     f1=low^3 - (2*low)-5;
+%     f2=mid^3 - (2*mid)-5;
+%     prod = f1*f2;
+%     if prod>0
+%         low = mid;
+%     else
+%         high = mid;
+%     end
+% end
+% root=(low+high)/2;
+% fprintf('\n \n Root is found: %2.7f\n\n',root);

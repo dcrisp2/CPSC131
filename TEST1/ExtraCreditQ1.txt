@@ -1,0 +1,39 @@
+####----------------------------------------####
+#DAN CRISP, EXTRA CREDIT QUIZ
+####----------------------------------------####
+#QUESTION 1:
+####----------------------------------------####
+syms x
+f = x^2 - 5*x+6
+diffx = diff(f,x)
+	diffx = 2*x - 5
+
+slope = subs(diffx,x,3)
+	slope = 1
+
+offset = slope*(3) - subs(f,x,3)
+	offset = 3
+tangent = slope*x - offset
+
+ezplot(f); hold on; ezplot(tangent)
+
+####----------------------------------------####
+#QUESTION 2:
+####----------------------------------------####
+syms t
+dist = 20*sin((pi*(t - 10))/20) + 20
+distance = subs(dist,t,10)
+	distance = 20
+spd = diff(dist,t)
+	spd = pi*cos((pi*(t - 10))/20)
+speed = subs(spd,t,10)
+	speed = pi
+accl = diff(spd,t)
+	accl = -(pi^2*sin((pi*(t - 10))/20))/20
+acceleration = subs(accl,t,10)
+	acceleration = 0
+
+PLOTTING:
+mupad
+plot(20*sin((pi*(x - 10))/20) + 20,pi*cos((pi*(x - 10))/20),-(pi^2*sin((pi*(x - 10))/20))/20)
+

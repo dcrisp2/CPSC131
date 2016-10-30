@@ -1,0 +1,106 @@
+//AUTHOR: DAN CRISP
+//CHAPTER 1 & 2 (cont.)
+
+#Q1
+Create a vector x with...
+	a: creating a vector with n elements, that increase by factors of 3 starting at 3.
+		n = 4;
+		for i=1:n x(i)=i*3; end
+	
+	b: creating a vector with n elements, which decreases by factors of 2 starting at 14.
+		n = 10;
+		for i=1:n x(i)=16-i*2; end
+		
+	c: creating a vector with n elements, which equal 1/i, starting from i=-3 and increasing by increments of 1.
+		n=7;
+		for i=1:n 
+			if (i<3)
+				x(i)=1/(i-4);
+			else
+				x(i)=1/(i-2);
+			end
+		end
+		
+	d: creating a vector with n elements, each equal to (-1+i)/i, starting from i=1 and with i increasing by increments of 1.
+		n=5;
+		for i=1:n
+			x(i)=(-1+i)/i;
+		end
+
+#Q2
+Let x = [3 2 6 8]' and y = [4 1 3 5]'
+	a: Add the sum of the elements in x to y
+		sum = z + y;
+	
+	b: Raise each element of x to the power specified by the corresponding element in y.
+		xToPowy = x.^y;
+		
+	c: Divide each element of y by the corresponding element in x
+		yByx = y./x;
+	
+	d: Multiply each element in x by the corresponding element in y, calling the result "z"
+		z = x.*y;
+	
+	e: Add up the elements in z and assign the result to a variable called "w".
+		w = 0; for i=1:4 w=w+z(i); end
+	
+	f: Compute x'*y - w and interpret the result.
+		x'*y - w is equal to 72 - 72. Meaning that the cross product between x and y is equal to the sum of term-by-term multiplication.
+		
+#Q3
+Given a vector, t, of length n, write down the MATLAB expressions that will correctly compute the following.
+	a: ln (2+t^2)
+		log(2+t.^2)
+	
+	b: (e^2)*(1+cos(3*t))
+		exp(2)*(1+cos(3*t))
+	
+	c: (cos(t)^2) + (sin(t)^2)
+		(cos(t).^2) + (sin(t).^2)
+	
+	d: archtan(t)
+		atan(t)
+	
+	e: cot(t)
+		cot(t)
+
+#Q4
+	1: Enter a list of names, age, sort them according to their last name.
+		names = {'abid', 'mansoor', 27; 'mark', 'konstantine', 25; 'anthony', 'martino', 26};
+		[b,index]=sort(names(1:3,2)); names(index(:),:)
+			'mark'		'konstantine'	[25]
+			'abid'		'mansoor'		[27]
+			'anthony'	'martino'		[26]
+			
+	2: Enter 20 numbers that are spaced equally with 6
+		nums = 6:6:120;
+			a 1x20 array populated with numbers each 6 numbers greater than the last.
+	
+	3: Enter arrays of 10 names of students, their ID number, grades. Display the results with the average grade as table.
+		names = { 'Dan C', 'Abid', 'Mark', 'Anthony', 'Joe', 'Dave', 'Phil', 'Tyler', 'Dave', 'Tom' };
+		IDs = [14741,14742,12978,98032,40938,50378,97381,10478,20542,51842];
+		grade = [4.0, 1.0, 2.0, 3.5, 3.24, 3.7, 2.89, 2.99, 3.9, 2.75];
+		names(11) = 'AVERAGE'; IDs(11) = 0; grade(11) = sum(grade())/length(grade);
+		table(names,IDs,grade)
+		      names       IDs     grade
+			_________    _____    _____
+	
+			'Dan C'      14741        4
+			'Abid'       14742        1
+			'Mark'       12978        2
+			'Anthony'    98032      3.5
+			'Joe'        40938     3.24
+			'Dave'       50378      3.7
+			'Phil'       97381     2.89
+			'Tyler'      10478     2.99
+			'Dave'       20542      3.9
+			'Tom'        51842     2.75
+			'AVERAGE'        0    2.997
+		
+	4: Find the angle between the two vectors a=6i-2j-3k and b=i+j+k
+		a = [6,-2,-3]; b = [1,1,1];
+		acos((a.*b)/(sqrt(a.^2).*sqrt(b.^2)))
+		ans = 
+			1.0822
+	
+	WHEN DOING CHAPTER 4, ALSO DO 1st 2 PROBLEMS FROM FILE 'HW3.pdf'.
