@@ -2,29 +2,45 @@
 //BISECTION
 
 #Q1
-% Initialize vars
+% Instantiate variables, equation, request initial limits, find limit avg
 mass = 65; v0 = 35; g = 9.81; x1 = 0.2; x0 = 0.3; good = 0.02;
-t = 4.5;
-syms t c;
-v = sqrt(g*mass/c)*tanh(t*sqrt(g*c/mass));
-c = solve(subs(v,t,4.5)==v0)
-	c =
-		-98.51
+t = 4.5; tolerance = 0.02;
+syms c;
 
-...From power point. Need sleep to translate.
-% tol = 0.00000001;
-% low = input('lower limit');
-% high = input('upper limit');
-% while(high-low>tol)
-%     mid = (high+low)/2;
-%     f1=low^3 - (2*low)-5;
-%     f2=mid^3 - (2*mid)-5;
-%     prod = f1*f2;
-%     if prod>0
-%         low = mid;
-%     else
-%         high = mid;
-%     end
-% end
-% root=(low+high)/2;
-% fprintf('\n \n Root is found: %2.7f\n\n',root);
+v = sqrt(g*mass/c)*tanh(t*sqrt(g*c/mass))-v0;
+
+lower = input('Enter a lower limit expectation for c');
+upper = input('Enter a higher limit expectation for c');
+middle=(upper-lower)/2;
+
+OK = 1; % simulate do-while which doesn't exist in matlab
+while (OK)
+    
+    % Calculate function values for each estimated point
+    vl = sqrt(g*mass/lower)*tanh(t*sqrt(g*lower/mass))-v0;
+    vh = sqrt(g*mass/upper)*tanh(t*sqrt(g*upper/mass))-v0;
+    vm = sqrt(g*mass/middle)*tanh(t*sqrt(g*upper/mass))-v0;
+    
+    if (vl*vm>0)
+        % IF lower and middle estimations result on the same side of
+        % the x axis, decrease range between lower and upper by setting
+        % lower value to middle value.
+        lower = middle;
+    else
+        % IF first case is false, and the assumption that lower and upper
+        % values are on opposite sides of x axis is true, then we can
+        % decrease the range between them by setting upper value with
+        % middle.
+        upper = middle;
+    end
+    
+    % Calculate new middle point
+    newMid = (upper-lower)/2;
+    
+    % If percent difference between the last middle point and this one is at or
+    % above tolerance value, set OK to false to exit loop.
+    if (abs((middle-newMid)/newMid)>=tolerance) OK = 0; end
+    
+    % Loop to either begin, or exit, with new middle value
+    middle = newMid;
+end
