@@ -1,0 +1,246 @@
+//AUTHOR:	DAN CRISP
+//BISECTION
+
+## QUESTION 1 ##
+%% note that 4.43 is not a good input for this function, to get the second root (only findnig second and third) a value such as 4.0 is sufficient.
+MATLAB CODE: 
+function [ root ] = NewtonRaphson( f, symVar, start, tolerance )
+    %NewtonRaphson Finds the root of a function using Newton Raphson, an
+    %initial value for the independant variable. The method will continue
+    %to iterate until the last and current iterations arrive at root values
+    %within the given tolerance (use 85 for %85).
+
+    % Clear Screen
+    clc;
+    
+    % Definitions
+    t = symVar; %This isn't necessary. var just has to be type sym.
+    fdifft = diff(f,t);
+    x = start;
+    
+    % Print Info
+    fprintf('A root is estimated for the below function.\nThe method uses the initial guess of %f and continues to iterate \nuntil the last and current root values are within %f percent.\n\n',start,tolerance);
+    disp('FUNCTION:');
+    pretty(f)
+    
+    % Print header to display
+    fprintf('DATA:\ni\tt\t\t\tf(t)\t\tdfdt\t\txnew\t\terror\n');
+    
+    % Display values from estimating iterations
+    OK=1; i = 1; error = 100;
+    while(OK)
+        xnew = x-(subs(f,t,x)/subs(fdifft,t,x));
+        fprintf('%d\t%f\t%f\t%f\t%f\t%f\n',i,x,subs(f,t,x),subs(fdifft,t,x),xnew,error);
+        error = abs((x-xnew)/xnew)*100;
+		
+        % If percent difference between 'x' and 'xnew' is at or
+        % above tolerance value, set OK to false to exit loop.
+        if (error<tolerance)
+			OK = 0;
+			fprintf('%d\t%f\t%f\t%f\t%f\t%f\n',i,x,subs(f,t,x),subs(fdifft,t,x),xnew,error);
+		end
+		
+        x = xnew; i=i+1;        
+    end
+    
+    root = x;
+    fprintf('\nANSWER:\nThe root was estimated to be %f\n\n',root);
+end
+
+MATLAB OUTPUT: (for >>syms t; f = -1 + 6*t - 4*t^2 + 0.5*t^3; NewtonRaphson(f,t,4,0.05);)
+A root is estimated for the below function.
+The method uses the initial guess of 4.000000 and continues to iterate 
+until the last and current root values are within 0.050000 percent.
+
+FUNCTION:
+ 3
+t       2
+-- - 4 t  + 6 t - 1
+ 2
+
+DATA:
+i	t			f(t)		dfdt		xnew		error
+1	4.000000	-9.000000	-2.000000	-0.500000	100.000000
+2	-0.500000	-5.062500	10.375000	-0.012048	9.000000
+3	-0.012048	-1.072871	6.096603	0.163930	40.500000
+4	0.163930	-0.121708	4.728868	0.189668	1.073496
+5	0.189668	-0.002478	4.536620	0.190214	0.135697
+5	0.189668	-0.002478	4.536620	0.190214	0.002872
+
+ANSWER:
+The root was estimated to be 0.190214
+
+MATLAB OUTPUT: (for >>syms t; f = -1 + 6*t - 4*t^2 + 0.5*t^3; NewtonRaphson(f,t,4.5,0.05);)
+A root is estimated for the below function.
+The method uses the initial guess of 4.500000 and continues to iterate 
+until the last and current root values are within 0.050000 percent.
+
+FUNCTION:
+ 3
+t       2
+-- - 4 t  + 6 t - 1
+ 2
+
+DATA:
+i	t			f(t)		dfdt		xnew		error
+1	4.500000	-9.437500	0.375000	29.666667	100.000000
+2	29.666667	9711.537037	1088.833333	20.747453	0.848315
+3	20.747453	2867.098719	485.705590	14.844497	0.429894
+4	14.844497	842.190578	217.782665	10.977382	0.397653
+5	10.977382	244.255925	98.935324	8.508538	0.352280
+6	8.508538	68.459080	46.524521	7.037076	0.290161
+7	7.037076	17.380235	23.984044	6.312417	0.209101
+8	6.312417	3.252277	15.270580	6.099441	0.114799
+8	6.312417	3.252277	15.270580	6.099441	0.034917
+
+ANSWER:
+The root was estimated to be 6.099441
+
+## QUESTION 2 ##
+>>sym h; r = 2; L = 5; V0 = 8.5; f = (r^2*acos((r-h)/r)-(r-h)*sqrt(2*r*h-h^2))*L - V0;
+>>ezplot(f); grid on;
+
+MATLAB OUTPUT:
+A root is estimated for the below function.
+The method uses the initial guess of 3.000000 and continues to iterate 
+until the last and current root values are within 0.050000 percent.
+
+FUNCTION:
+    /     h \              2                    17
+acos| 1 - - | 20 + sqrt(- h  + 4 h) (h - 2) 5 - --
+    \     2 /                                    2
+
+DATA:
+i	t			f(t)		dfdt		xnew		error
+1	3.000000	42.048156	17.320508	0.572349	100.000000
+2	0.572349	-2.981168	14.006468	0.785191	4.241561
+3	0.785191	0.209785	15.887853	0.771987	0.271071
+3	0.785191	0.209785	15.887853	0.771987	0.017104
+
+ANSWER:
+The root was estimated to be 0.771987
+
+## QUESTION 3 ##
+syms x; f = -0.3*(x^3 + x^2 - 2*x); ezplot(f); grid on; axis([-4 4 -1 1]);
+
+MATLAB OUTPUT:
+>>NewtonRaphson(f,x,1.5,0.05);
+A root is estimated for the below function.
+The method uses the initial guess of 1.500000 and continues to iterate 
+until the last and current root values are within 0.050000 percent.
+
+FUNCTION:
+         2      3
+3 x   3 x    3 x
+--- - ---- - ----
+ 5     10     10
+
+DATA:
+i	t			f(t)		dfdt		xnew		error
+1	1.500000	-0.787500	-2.325000	1.161290	100.000000
+2	1.161290	-0.177638	-1.310510	1.025742	29.166667
+3	1.025742	-0.023968	-0.962377	1.000837	13.214671
+4	1.000837	-0.000754	-0.902009	1.000001	2.488418
+5	1.000001	-0.000001	-0.900002	1.000000	0.083596
+5	1.000001	-0.000001	-0.900002	1.000000	0.000093
+
+ANSWER:
+The root was estimated to be 1.000000
+
+MATLAB OUTPUT:
+>>NewtonRaphson(f,x,0.3,0.05);
+%% NOTE this breaks the method at x = 0, as the error is seen to rise to infinity even though it is correct.
+A root is estimated for the below function.
+The method uses the initial guess of 0.300000 and continues to iterate 
+until the last and current root values are within 0.050000 percent.
+
+FUNCTION:
+         2      3
+3 x   3 x    3 x
+--- - ---- - ----
+ 5     10     10
+
+DATA:
+i	t			f(t)		dfdt		xnew		error
+1	0.300000	0.144900	0.339000	-0.127434	100.000000
+2	-0.127434	-0.080711	0.661845	-0.005485	335.416667
+3	-0.005485	-0.003300	0.603264	-0.000015	2223.363684
+4	-0.000015	-0.000009	0.600009	-0.000000	36968.893409
+5	-0.000000	-0.000000	0.600000	-0.000000	13517265.077782
+6	-0.000000	-0.000000	0.600000	-0.000000	1827110480969.798600
+7	-0.000000	-0.000000	0.600000	-0.000000	33383327089388444000000.000000
+8	-0.000000	-0.000000	0.600000	-0.000000	11144465275570963000000000000000000000000000.000000
+9	-0.000000	-0.000000	0.600000	-0.000000	1241991062784069800000000000000000000000000000000000000000000000000000000000000000000.000000
+10	-0.000000	-0.000000	0.600000	-0.000000	15425418000355034000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.000000
+11	-0.000000	-0.000000	0.600000	-0.000000	Inf
+Operation terminated by user during sym/subs>mupadsubs (line 140)
+
+MATLAB OUTPUT:
+>>NewtonRaphson(f,x,-3,0.05);
+A root is estimated for the below function.
+The method uses the initial guess of -3.000000 and continues to iterate 
+until the last and current root values are within 0.050000 percent.
+
+FUNCTION:
+         2      3
+3 x   3 x    3 x
+--- - ---- - ----
+ 5     10     10
+
+DATA:
+i	t			f(t)		dfdt		xnew		error
+1	-3.000000	3.600000	-5.700000	-2.368421	100.000000
+2	-2.368421	0.881761	-3.027424	-2.077163	26.666667
+3	-2.077163	0.147963	-2.036848	-2.004520	14.021909
+4	-2.004520	0.008167	-1.813579	-2.000017	3.623958
+5	-2.000017	0.000030	-1.800051	-2.000000	0.225160
+5	-2.000017	0.000030	-1.800051	-2.000000	0.000846
+
+ANSWER:
+The root was estimated to be -2.000000
+
+MATLAB OUTPUT:
+>>NewtonRaphson(diff(f,x),x,-1,0.05);
+A root is estimated for the below function.
+The method uses the initial guess of -1.000000 and continues to iterate 
+until the last and current root values are within 0.050000 percent.
+
+FUNCTION:
+       2
+3   9 x    3 x
+- - ---- - ---
+5    10     5
+
+DATA:
+i	t			f(t)		dfdt		xnew		error
+1	-1.000000	0.300000	1.200000	-1.250000	100.000000
+2	-1.250000	-0.056250	1.650000	-1.215909	20.000000
+3	-1.215909	-0.001046	1.588636	-1.215251	2.803738
+4	-1.215251	-0.000000	1.587451	-1.215250	0.054179
+4	-1.215251	-0.000000	1.587451	-1.215250	0.000020
+
+ANSWER:
+The root was estimated to be -1.215250
+
+MATLAB OUTPUT:
+>>NewtonRaphson(diff(f,x),x,1,0.05);
+A root is estimated for the below function.
+The method uses the initial guess of 1.000000 and continues to iterate 
+until the last and current root values are within 0.050000 percent.
+
+FUNCTION:
+       2
+3   9 x    3 x
+- - ---- - ---
+5    10     5
+
+DATA:
+i	t			f(t)		dfdt		xnew		error
+1	1.000000	-0.900000	-2.400000	0.625000	100.000000
+2	0.625000	-0.126562	-1.725000	0.551630	60.000000
+3	0.551630	-0.004845	-1.592935	0.548589	13.300493
+4	0.548589	-0.000008	-1.587460	0.548584	0.554408
+4	0.548589	-0.000008	-1.587460	0.548584	0.000956
+
+ANSWER:
+The root was estimated to be 0.548584
