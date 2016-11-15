@@ -211,11 +211,11 @@ for it=1:Nt-1
     vx(it+1)=vx(it)+ax1*deltat;
     vy(it+1)=vy(it)+ay*deltat;
     x(it+1)=x(it)+0.5*(vx(it+1)+vx(it))*deltat;
-   y(it+1)=y(it)+0.5*(vy(it+1)+vy(it))*deltat; 
- if y(it+1)<0
-       vy(it+1)=abs(vy(it+1));
-   end
-end
+    y(it+1)=y(it)+0.5*(vy(it+1)+vy(it))*deltat;
+    if y(it+1)<0
+        vy(it+1)=abs(vy(it+1));
+    end
+    end78
 % plot motion
 xmax=max(x);
 xmin=min(x);

@@ -4,13 +4,14 @@ function [dX] = CartDynamics(X)
 %x(2)= q;
 %x(3)=dx;
 %x=(4)=dq
-x=X(1)
-q=X(2);  
-dx=X(3);
-dq= X(4);
-m =[3,2*cos(q);cos(q),1]
-b=[2*dq*dq*sin(q);-9.8*sin(q)]
+x = X(1)
+y = X(2);  
+dx = X(3);
+dy = X(4);
+dz = X(5);
+m =[3,2*cos(y);cos(y),1]
+b=[2*dy*dy*sin(y);-9.8*sin(y)]
 ddx=inv(m)*b
-dX=[dx;dq;ddx]
+dX=[dx;dy;ddx]
 end
 

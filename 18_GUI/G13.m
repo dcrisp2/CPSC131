@@ -22,7 +22,7 @@ function varargout = G13(varargin)
 
 % Edit the above text to modify the response to help G13
 
-% Last Modified by GUIDE v2.5 16-Nov-2015 21:57:11
+% Last Modified by GUIDE v2.5 15-Nov-2016 15:55:51
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -75,21 +75,26 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in pushbutton1.
 function pushbutton1_Callback(hObject, eventdata, handles)
+% Update handles structure
+guidata(hObject, handles);
+
 n1=str2num(get(handles.xx,'String'))
-n2=str2num(get(handles.qq,'String'))
+n2=str2num(get(handles.yy,'String'))
 n3=str2num(get(handles.dx,'String'))
-n4=str2num(get(handles.dq,'String'))
+n4=str2num(get(handles.dy,'String'))
+n5=str2num(get(handles.dz,'String'))
 
 dt =0.01;
-X=[n1;n2;n3;n4];
+X=[n1;n2;n3;n4;n5];
 for i=1:1000
     dX=CartDynamics(X);
     X=CartI(X,dX,dt);
-    % display position(x); angel(q);  velocity(dx) ;angular velocity(dq)
+    % display position(x); angel(q);  velocity(dx) ;angular velocity(dy)
     set(handles.text1,'String',num2str(X(1)));
     set(handles.text2,'String',num2str(X(2)));
     set(handles.text3,'String',num2str(X(3)));
     set(handles.text4,'String',num2str(X(4)));
+    set(handles.text5,'String',num2str(X(5)));
     % CartDisplay1(X);
     x=X(1);q=X(2);
 hold off
@@ -137,18 +142,18 @@ end
 
 
 
-function qq_Callback(hObject, eventdata, handles)
-% hObject    handle to qq (see GCBO)
+function yy_Callback(hObject, eventdata, handles)
+% hObject    handle to yy (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of qq as text
-%        str2double(get(hObject,'String')) returns contents of qq as a double
+% Hints: get(hObject,'String') returns contents of yy as text
+%        str2double(get(hObject,'String')) returns contents of yy as a double
 
 
 % --- Executes during object creation, after setting all properties.
-function qq_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to qq (see GCBO)
+function yy_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to yy (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -183,18 +188,41 @@ end
 
 
 
-function dq_Callback(hObject, eventdata, handles)
-% hObject    handle to dq (see GCBO)
+function dy_Callback(hObject, eventdata, handles)
+% hObject    handle to dy (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of dq as text
-%        str2double(get(hObject,'String')) returns contents of dq as a double
+% Hints: get(hObject,'String') returns contents of dy as text
+%        str2double(get(hObject,'String')) returns contents of dy as a double
 
 
 % --- Executes during object creation, after setting all properties.
-function dq_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to dq (see GCBO)
+function dy_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to dy (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function dz_Callback(hObject, eventdata, handles)
+% hObject    handle to dz (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of dz as text
+%        str2double(get(hObject,'String')) returns contents of dz as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function dz_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to dz (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
