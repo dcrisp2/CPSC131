@@ -1,0 +1,71 @@
+CPSC 131- F16
+Homework- Functions
+ Due date: 11/2/2016
+Answer the following questions in a document file and name it as your [Last name  _First name].docx
+
+Q1- Write a void function to display an equilateral triangle on a polar plot.
+function star( num, step )
+    %polar plot with 'num' points, and 'step' value rotational sizing for the steps between
+    %them. Plot starts at 90deg. Make sure to use pi*(something) instead of
+    %degrees.
+
+    start=pi*(1/2); step=step;
+    THETA = start:step:start+step*num;
+    
+    RHO = ones(1,num+1);
+    
+    polar(THETA,RHO);
+end
+
+>>star(3,pi*(2/3))
+
+Q2- Write a recursive function to evaluate the Fibonacci function 
+function [ fib ] = fibonacci( n )
+	% fibonacci.m Outputs first 'n' fibonacci numbers...
+
+	fib(1) = 0;
+	fib(2) = 1;
+
+	for i=3:n
+		fib(i) = fib(i-2) + fib(i-1);
+    end
+    
+    fib = fib(n);
+end
+
+>>fibonacci(7)
+ans =
+	8
+
+Q3- Write a function vout=insert_after(v,x,k) that insert the value x into vector v after the k’th element
+function [vout] = insert_after(v,x,k)
+    
+    v(k+1)=x;
+    vout = v;
+
+end
+
+>>v = [0,1,2,3,4]; v = insert_after(v,5,5);
+v =
+	0	1	2	3	4	5
+
+Q4- Write a function that has two strings (s1,s2)and return 1,-1,0 if s1>s2, s1<s2 and s1=s2 respectively .
+function [ans] = string_compare( string1 , string2 )
+
+    str1 = str2double(string1); str2 = str2double(string2);
+    
+    if str1>str2
+        ans = 1;
+    elseif str1<str2
+        ans = -1;
+    elseif str1==str2
+        ans = 0;
+    else
+        ans = 'Error';
+    end
+    
+end
+
+>>s1 = '25'; s2 = '27'; ans=string_compare(s1,s2)
+ans =
+	-1
