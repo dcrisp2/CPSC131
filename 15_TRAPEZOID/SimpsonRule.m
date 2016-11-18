@@ -1,4 +1,4 @@
-function [vargout] = trap(X,fun,n)
+function [vargout] = SimpsonRule(X,fun,n)
     %trap takes function handle fun, and n steps over X to estimate the
     %integrand of fun over all X using the trapezoid metod.
     Xlen = length(X);
@@ -29,7 +29,9 @@ function [vargout] = trap(X,fun,n)
     
     % Aggregate values for 'raw', 'estimated', and 'error' into vargout.
     vargout=[raw, estimated, error];
+    fprintf('\nThe raw calculation found the integral to be %f.\nThe trapz() estimate was %f.\nAnd the percent error between the two is %f.\n\n',vargout(:));
+    
     
     % Plot function
-    plot(X,Y)
+    figure; plot(X,Y); title('Y = f(x)'),xlabel('X'); ylabel('Y');
 end
