@@ -109,3 +109,94 @@ diceprob.jpg
 
 
 QUESTION 2: CHAPTER 7 -- #13
+MATLAB CODE:
+function vout=clipVec( v , vmin , vmax )
+    %clipVec copies vector v to vout, but 'clips' values between
+    %vmin and vmax.
+    
+    for i=1:length(v)
+        if v(i)>vmax
+            vout(i)=vmax;
+        elseif v(i)<vmin
+            vout(i)=vmin;
+        else
+            vout(i)=v(i);
+        end
+    end
+end
+
+MATLAB OUTPUT:
+>>x=linspace(0, 3, 300);
+y=sin(2*pi*x);
+plot(x,clipVec(y, -0.9, 0.9));
+axis([0, 3, -1, 1]);
+
+clipVec.jpg
+
+QUESTION 3a: TrapizoidRule
+MATLAB CODE:
+TrapizoidRule.m
+function [vargout] = TrapizoidRule(X,fun,n)
+    %trap takes function handle fun, and n steps over X to estimate the
+    %integrand of fun over all X using the trapezoid metod.
+    Xlen = length(X);
+    range = X(Xlen)-X(1);
+    step = range/n;
+    
+    % Create a corresponding Y space to match with X
+    Y = fun(X);
+    
+    % Initialize variables for first pass through loop.
+    raw = 0;
+    a = X(1);
+    fa = fun(a);
+	
+	% Transparent trapezoid estimation using for loop
+    for i=1:n
+       b = a + step;
+       fb = fun(b);
+       
+       raw = raw + 0.5*(b-a)*(fb+fa);
+       if i<n
+           a = b;
+           fa = fb;
+       end
+    end
+    
+    % Use trapz(X,Y) as reference to 'raw' estimate
+    estimated = trapz(X,Y);
+    error = abs((raw-estimated)/estimated)*100;
+    
+    % Aggregate values for 'raw', 'estimated', and 'error' into vargout.
+    vargout=[raw, estimated, error];
+    
+    % Plot function
+    figure; plot(X,Y); title('Y = f(x)'),xlabel('X'); ylabel('Y');
+end
+
+MATLAB OUTPUT: (NOTE: output is my raw calculation, the trapz() output, and the %error between the two.)
+>>X = -2:6/100:4; fun = @(x) 1-x-4*x.^3 + 2*x.^5;
+>> n=1; [result1] = TrapizoidRule(X,fun,n);
+
+The raw calculation found the integral to be 5280.000000.
+The trapz() estimate was 1104.676774.
+And the percent error between the two is 377.967866.
+
+>> n=2; [result2] = TrapizoidRule(X,fun,n);
+
+The raw calculation found the integral to be 2634.000000.
+The trapz() estimate was 1104.676774.
+And the percent error between the two is 138.440788.
+
+>> n=4; [result4] = TrapizoidRule(X,fun,n);
+
+The raw calculation found the integral to be 1516.875000.
+The trapz() estimate was 1104.676774.
+And the percent error between the two is 37.313922.
+
+trap.jpg
+
+QUESTION 3b: SimpsonRule
+MATLAB CODE:
+SimpsonRule.m
+
