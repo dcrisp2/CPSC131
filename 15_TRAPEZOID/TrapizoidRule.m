@@ -1,18 +1,37 @@
-function [ estimation ] = TrapizoidRule( X, Y, n)
-    
+function [vargout] = TrapizoidRule(X,fun,n)
+    %trap takes function handle fun, and n steps over X to estimate the
+    %integrand of fun over all X using the trapezoid metod.
     Xlen = length(X);
-    step = floor(Xlen/n);
+    range = X(Xlen)-X(1);
+    step = range/n;
     
-    steps(1)=1; estimation = 0;
-    for i=2:n+1
-       steps(i)= 1+step*(i-1);
+    % Create a corresponding Y space to match with X
+    Y = fun(X);
+    
+    %Initialize variables for first pass through loop.
+    raw = 0;
+    a = X(1);
+    fa = fun(a);
+    for i=1:n
+       b = a + step;
+       fb = fun(b);
        
-       if and(i==n+1,n>1)
-           steps(i) = steps(i) + mod(Xlen-1,(step*n));
-       elseif n==1
-           steps(i) = step;
+       raw = raw + 0.5*(b-a)*(fb+fa);
+       if i<n
+           a = b;
+           fa = fb;
        end
-       
-       estimation = estimation + trapz(X(steps(i-1):steps(i)),Y(steps(i-1):steps(i)));
     end
+    
+    % Use trapz(X,Y) as reference to 'raw' estimate
+    estimated = trapz(X,Y);
+    error = abs((raw-estimated)/estimated)*100;
+    
+    % Aggregate values for 'raw', 'estimated', and 'error' into vargout.
+    vargout=[raw, estimated, error];
+    fprintf('\nThe raw calculation found the integral to be %f.\nThe trapz() estimate was %f.\nAnd the percent error between the two is %f.\n\n',vargout(:));
+    
+    
+    % Plot function
+    figure; plot(X,Y); title('Y = f(x)'),xlabel('X'); ylabel('Y');
 end

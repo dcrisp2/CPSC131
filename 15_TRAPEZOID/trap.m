@@ -1,10 +1,14 @@
-function [raw] = trap(X,fun,n)
+function [vargout] = trap(X,fun,n)
     %trap takes function handle fun, and n steps over X to estimate the
     %integrand of fun over all X using the trapezoid metod.
     Xlen = length(X);
     range = X(Xlen)-X(1);
     step = range/n;
     
+    % Create a corresponding Y space to match with X
+    Y = fun(X);
+    
+    %Initialize variables for first pass through loop.
     raw = 0;
     a = X(1);
     fa = fun(a);
@@ -19,5 +23,13 @@ function [raw] = trap(X,fun,n)
        end
     end
     
-    plot(X,fun(X))
+    % Use trapz(X,Y) as reference to 'raw' estimate
+    estimated = trapz(X,Y);
+    error = abs((raw-estimated)/estimated)*100;
+    
+    % Aggregate values for 'raw', 'estimated', and 'error' into vargout.
+    vargout=[raw, estimated, error];
+    
+    % Plot function
+    plot(X,Y)
 end
