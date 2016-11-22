@@ -1,0 +1,81 @@
+//AUTHOR:		DANIEL CRISP
+//DATE:			FRIDAY, NOVEMBER 11th, 2016
+//DESC:			ANIMATION
+
+#QUESTION 2: Decaying Circle
+MATLAB CODE:
+plotdecay.m
+function plotdecay( r0, tau, T, omega, x, y, r, t)
+    %plotdecay plots decaying circular motion.
+    clc;
+    
+    for it = 1:length(t)
+        plot(x(1:it),y(1:it),'b',x(it),y(it),'ro',[0,x(it)],[0,y(it)],'g','MarkerSize',8,'MarkerFaceColor','r')
+        axis([-r0 r0 -r0 r0]), grid on
+        xlabel('x')
+        ylabel('y')
+        title('Decaying Circular Motion')
+        drawnow
+    end
+
+end
+
+MATLAB OUTPUT:
+>>r0 = 1; tau = 1; T = 1; omega = 2*pi/T; t = linspace(0,T,1000);
+>>r = r0*exp(-t/tau); x = r.*cos(omega*t); y = r.*sin(omega*t);
+>>plotdecay(r0,tau,T,omega,x,y,r,t)
+
+decayingCircle.jpg
+
+
+#QUESTION 4: Lissajous
+MATLAB CODE:
+plotLJ.m
+function plotLJ( r0, T, phi, a, b, t)
+    %plotLJ plots the lissajous function
+    clc;
+    
+    R = r0;
+    omega = 2*pi/T;
+    x = R*cos(a*omega*t);
+    y = R*sin(b*omega*t + phi);
+    
+    plot(x,y); axis([-r0 r0 -r0 r0]); grid on
+    
+    animateON = input('Do you want to see this animated? Enter 0 or 1: ');
+    
+    if animateON==1
+        for it = 1:length(t)
+            plot(x(1:it),y(1:it),'b',x(it),y(it),'ro',[0,x(it)],[0,y(it)],'g','MarkerSize',8,'MarkerFaceColor','r')
+            axis([-r0 r0 -r0 r0]), grid on
+            xlabel('x')
+            ylabel('y')
+            title('Lissajous')
+            drawnow
+        end
+    end
+end
+
+MATLAB OUTPUT:
+>>T = 1; a = 1; b = .25; phi = pi; R = 1; omega = 2*pi/T;
+>>t = linspace(0,T,1000);
+>>plotLJ(R, T, omega, 2*pi, 1, .25, t);
+
+plotLJ.jpg
+
+
+#QUESTION 7: Epicycles
+MATLAB CODE:
+epicycles.m
+T1 = 1; Tratio; R = 5; r = 2;
+
+    omega = 2*pi/T;
+    x = R*cos(a*omega*t);
+    y = R*sin(b*omega*t + phi);
+
+#QUESTION 8: A random walk in two dimensions
+
+#QUESTION 9: Vertical motion and energy
+
+#QUESTION 10: Two dimensional billiards
+
