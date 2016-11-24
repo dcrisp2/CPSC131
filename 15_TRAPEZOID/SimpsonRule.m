@@ -99,7 +99,20 @@ function [vargout] = SimpsonRule( plotfun, method , X , fun , n )
     % Aggregate values for 'raw', 'estimated', and 'error' into vargout.
     vargout=[estimated, real_trapz, error_trapz, real_simps, error_simps];
     
+	display( vargout, method);
+	
     % Display
+    if method==0
+        fprintf('\nUsing Simpsons 1/3, the integral was estimated to be %f.',vargout(1));
+    else
+        fprintf('\nUsing Simpsons 3/8, the integral was estimated to be %f.',vargout(1));
+    end
+    fprintf('\nThe function trapz() found the real value of the integral to be %f;\n\t...implying a %f%% error.',vargout(2:3));
+	fprintf('\nAnd function simps(), a function from Daimen Garcia on mathworks file exchange, finds the real value of the integral to be %f;\n\t...implying a %f%% error.\n\n',vargout(4:5));
+
+end
+
+function display( vargout , method )
     if method==0
         fprintf('\nUsing Simpsons 1/3, the integral was estimated to be %f.',vargout(1));
     else
