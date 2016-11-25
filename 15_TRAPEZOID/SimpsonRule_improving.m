@@ -2,7 +2,9 @@ function [vargout] = SimpsonRule( plotfun, method , X , fun , n )
     %SimpsonRule takes function handle fun, and n steps over X to estimate the
     %integrand of fun over all X using either 1/3 or 3/8 simpson methods.
     %Specify which--1/3 or 3/8--simpson method to use by stating either 0 or 1.
-    %When plotfun=0, the function will not be plotted. 
+    %When plotfun=0, the function will not be plotted.
+    %Need to have check of handle or array before trapz, and plot. This
+    %should let user not just function handles but arrays too..
     
     if mod(n,2)
         isodd = 1; %isodd is 1, or true, when n is odd.

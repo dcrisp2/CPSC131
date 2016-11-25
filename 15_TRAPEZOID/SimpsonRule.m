@@ -70,7 +70,7 @@ function [vargout] = SimpsonRule( plotfun, method , X , fun , n )
         figure; ezplot(fun); title('Y = f(x)'),xlabel('X'); ylabel('Y');
     end
     
-    % Use trapz(X,Y) as reference to 'real' estimate
+    % Use trapz(X,Y) as reference to 'real' estimate. 
     real_trapz = trapz(X,fun(X));
     error_trapz = ((real_trapz-estimated)/real_trapz)*100;
     
