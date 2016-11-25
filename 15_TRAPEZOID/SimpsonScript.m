@@ -31,8 +31,7 @@ A=h*(3/8);
 f_xa = Y(1);
 vals(1) = A*f_xa;
 
-f_xb = Y(X_end);
-%f_xb = fun(b);
+f_xb = Y(X_end); 
 vals(n) = A*f_xb;
 
 estimated = vals(1) + vals(n); %Both first, and last points
