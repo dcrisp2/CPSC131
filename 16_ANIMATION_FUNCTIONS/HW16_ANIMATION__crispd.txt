@@ -72,6 +72,8 @@ T1 = 1; Tratio; R = 5; r = 2;
     omega = 2*pi/T;
     x = R*cos(a*omega*t);
     y = R*sin(b*omega*t + phi);
+	
+	
 
 #QUESTION 8: A random walk in two dimensions
 
