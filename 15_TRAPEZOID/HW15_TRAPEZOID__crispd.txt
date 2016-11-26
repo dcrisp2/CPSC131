@@ -2,6 +2,8 @@
 //DATE:			11/15/2016
 //DESC:			TRAPEZOID
 
+
+
 QUESTION 1: CHAPTER 7 -- #8
 MATLAB CODE:
 rolldice.m
@@ -108,6 +110,8 @@ Player rolls a 5 and a 3 : 8
 diceprob.jpg
 
 
+
+
 QUESTION 2: CHAPTER 7 -- #13
 MATLAB CODE:
 function vout=clipVec( v , vmin , vmax )
@@ -132,6 +136,8 @@ plot(x,clipVec(y, -0.9, 0.9));
 axis([0, 3, -1, 1]);
 
 clipVec.jpg
+
+
 
 QUESTION 3a: TrapizoidRule
 MATLAB CODE:
@@ -196,10 +202,128 @@ And the percent error between the two is 37.313922.
 
 trap.jpg
 
+
+
 QUESTION 3b: SimpsonRule
 MATLAB CODE:
 SimpsonRule.m
-Write a function called SimpsonRule (3/8 rule) and implement the integration for
+function [vargout] = SimpsonRule( plotfun, method , X , fun , n )
+    %SimpsonRule takes function handle fun, and n steps over X to estimate the
+    %integrand of fun over all X using either 1/3 or 3/8 simpson methods.
+    %Specify which--1/3 or 3/8--simpson method to use by stating either 0 or 1.
+    %When plotfun=0, the function will not be plotted. 
+    
+    if mod(n,2)
+        isodd = 1; %isodd is 1, or true, when n is odd.
+    else
+        isodd = 0;
+    end
+    
+    if method==0 && isodd %method==0 for requesting 1/3 rule.
+    	fprintf('\n"Vargin" n must be even if we are to have an odd number of points for Simpsons 1/3 Rule.');
+    	fprintf('\nYet, %i is odd. Switching the method argument to 1 and continuing with the 3/8 Rule.\n\n',n);
+    	method=1;
+    end
+    if method==1 && n<3
+    	fprintf('\n"vargin" n must be 3 or greater to use Simpsons 3/8 rule.');
+    	fprintf('\nYet, %i is not. Breaking from function "SimpsonRule".',n);
+    	fprintf('\n\nIf n=2, try using method=0 for Simpsons 1/3, or make n equal 3 or greater\n\n');
+    	vargout(1:5) = 0;
+    	return;
+    end
+    
+	% Determine step size using range of 'X' and number of steps 'n'
+    a = X(1);
+    b = X(length(X));
+    h = (b-a)/n;
+    
+    % Initialize variables for first pass through loop.
+    f_xa = fun(a);
+    f_xb = fun(b);
+    if method==0
+        A=h*(1/3);
+    else
+        A=h*(3/8);
+    end
+    
+    estimated = A*(f_xa+f_xb); %Both first, and last points
+	for i=1:n-1
+        xi = a + (h*i);
+        switch method
+            case 0 % Simpson's 1/3... 1-4-2-4-2-4-1
+                if mod(i,2)==0
+                    % IF i is even
+                    newval = A*2*fun(xi);
+                else
+                    % IF i is odd
+                    newval = A*4*fun(xi);
+                end
+            case 1 % Simpson's 3/8... 1-3-3-2-3-3-2-3-3-1 (or ...2-4-1 when n is odd)
+                if mod(i,3)==0
+                    % IF i is divisible by 3
+                    newval = A*2*fun(xi);
+                elseif isodd && i==n-2
+                    % IF n is odd, and i equals n-2
+                    newval = A*4*fun(xi);
+                else
+                    % OTHERWISE
+                    newval = A*3*fun(xi);
+                end
+        end
+
+        estimated = estimated + newval;
+	end
+    
+    % Plot function
+    if plotfun == 1
+        figure; ezplot(fun); title('Y = f(x)'),xlabel('X'); ylabel('Y');
+    end
+    
+    % Use trapz(X,Y) as reference to 'real' estimate. 
+    real_trapz = trapz(X,fun(X));
+    error_trapz = ((real_trapz-estimated)/real_trapz)*100;
+    
+    % Using simps.m from Garcia, Damien to get more accurate estimation of
+    % integral, at least more-so than from trapz.
+    % Even though it is an extension of matlab's trapz(). Code was found at...
+    % https://www.mathworks.com/matlabcentral/fileexchange/25754-simpson-s-rule-for-numerical-integration/content/simps.m
+    if exist('simps.m','file')
+        real_simps = simps(X,fun(X));
+        error_simps = ((real_simps-estimated)/real_simps)*100;
+    else
+        fprintf('\nsimps.m not found. real_simps and error_simps set to 0.\n');
+        real_simps = 0;
+        error_simps = 0;
+    end
+    
+    % Calculate error bounds using err function. Change what point you use
+    % to evaluate the error by using evalAt. Had defaulted to a+h..
+    %error_limit = errorlim(a,b,a+h,X,fun,n);
+    
+    % Aggregate values for 'raw', 'estimated', and 'error' into vargout.
+    vargout=[estimated, real_trapz, error_trapz, real_simps, error_simps];
+    
+    % Display
+	display( vargout, method);
+
+end
+
+function display( vargout , method )
+    if method==0
+        fprintf('\nUsing Simpsons 1/3, the integral was estimated to be %f.',vargout(1));
+    else
+        fprintf('\nUsing Simpsons 3/8, the integral was estimated to be %f.',vargout(1));
+    end
+    fprintf('\nThe function trapz() found the real value of the integral to be %f;\n\t...implying a %f%% error.',vargout(2:3));
+	fprintf('\nAnd function simps(), a function from Daimen Garcia on mathworks file exchange, finds the real value of the integral to be %f;\n\t...implying a %f%% error.\n\n',vargout(4:5));
+
+end
+
+function [error_limit] = errorlim(a,b,evalAt,X,fun,n)
+    syms X;
+    error_function = [-1/(180*n^4)]*[(b-a)^5]*diff(fun(X),X,4);
+    error_limit = vpa(subs(error_function,X,evalAt));
+end
 
 >>X = -2:6/100:4; fun = @(x) 1-x-4*x.^3 + 2*x.^5;
 >>results=SimpsonRule(0,1,X,fun,1);
@@ -224,6 +348,88 @@ And function simps(), a function from Daimen Garcia on mathworks file exchange, 
 	...implying a -3.045379% error.
 	
 
+	
+	
 #QUESTION 4
+MATLAB CODE: (didn't use function as before, could not adapt it in time to work for both arrays and function handles) h was not re-calculated. I think the lack of dynamic h in my script provides the largest error.
+SimpsonScript.m
+% Clean workspace and console
+clear; clc;
+
+% Re-set scriptname for re-run.
+script = 'SimpsonScript.m';
+
+% Instantiate variables
 t=[1,2,3.25,4.5,6,7,8,8.5,9.3,10];
 v=[5,6,5.5,7,8.5,8,6,7,7,5];
+X = t; Xlen = length(X);
+Y = v;
+n = Xlen-1; %Using number of steps equal to length of array - 1.
+
+if mod(n,2)
+	isodd = 1; %isodd is 1, or true, when n is odd.
+else
+	isodd = 0;
+end
+
+% Determine step size using range of 'X' and number of steps 'n'
+a = X(1); 
+b = X(Xlen);
+h = (b-a)/n;
+
+% Initialize variables for first pass through loop.
+A=h*(3/8);
+
+f_xa = Y(1);
+vals(1) = A*f_xa;
+
+f_xb = Y(Xlen); 
+vals(Xlen) = A*f_xb;
+
+estimated = vals(1) + vals(Xlen); %Both first, and last points
+for i=2:Xlen-1
+    % Simpson's 3/8... 1-3-3-2-3-3-2-3-3-1 (or ...2-4-1 when n is odd)
+    if mod(i,3)==0
+        % IF i is divisible by 3
+        vals(i) = A*2*Y(i);
+    elseif isodd && i==n-2
+        % IF n is odd, and i equals n-2
+        vals(i) = A*4*Y(i);
+    else
+        % OTHERWISE
+        vals(i) = A*3*Y(i);
+    end
+    
+    estimated = estimated + vals(i);
+end
+
+% Use trapz(X,Y) as reference to 'real' estimate
+real_trapz = trapz(X,Y);
+error_trapz = ((real_trapz-estimated)/real_trapz)*100;
+
+% Using simps.m from Garcia, Damien to get more accurate estimation of
+% integral, at least more-so than from trapz.
+real_simps = simps(X,Y);
+error_simps = ((real_simps-estimated)/real_simps)*100;
+
+vargout=[estimated, real_trapz, error_trapz, real_simps, error_simps];
+
+% Plot function
+figure; plot(X,Y); title('Y = f(x)'),xlabel('X'); ylabel('Y');
+
+fprintf('\nUsing Simpsons 3/8, the integral was estimated to be %f.',vargout(1));
+fprintf('\nThe function trapz() found the real value of the integral to be %f;\n\t...implying a %f%% error.',vargout(2:3));
+fprintf('\nAnd function simps(), a function from Daimen Garcia on mathworks file exchange, finds the real value of the integral to be %f;\n\t...implying a %f%% error.\n\n',vargout(4:5));
+
+
+MATLAB OUTPUT:
+Using Simpsons 3/8, the integral was estimated to be 60.187500.
+The function trapz() found the real value of the integral to be 60.425000;
+	...implying a 0.393049% error.
+And function simps(), a function from Daimen Garcia on mathworks file exchange, finds the real value of the integral to be 61.318056;
+	...implying a 1.843756% error.
+
+	
+MEANING:
+A distance of about 60.5 was traveled (units not stated in question).
+

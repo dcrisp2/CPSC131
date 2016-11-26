@@ -88,7 +88,8 @@ function [vargout] = SimpsonRule( plotfun, method , X , fun , n )
     end
     
     % Calculate error bounds using err function. Change what point you use
-    % to evaluate the error by using evalAt. Had defaulted to a+h..
+    % to evaluate the error by using evalAt. Had defaulted to a+h.. Not
+    % currently using error_lim.
     %error_limit = errorlim(a,b,a+h,X,fun,n);
     
     % Aggregate values for 'raw', 'estimated', and 'error' into vargout.
