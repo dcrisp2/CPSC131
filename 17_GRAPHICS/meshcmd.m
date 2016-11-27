@@ -5,13 +5,13 @@ function [ X , Y ] = meshcmd( LowPoint , HighPoint , Points )
     high = HighPoint; %[6 15]
     length = high - low;
     
-    x = linspace(low(1),length(1),n);
-    y = linspace(low(2),length(2),n);
+    x = linspace(low(1),high(1),n);
+    y = linspace(low(2),high(2),n);
     
     [X,Y] = meshgrid(x,y);
-    F = input('\nEnter a Z(n,n) matrix for use in surf plot X-Y.\n');
-    %F = X.*exp(-X.^2-Y.^2);
-    %F = zeros(n,n); %zeros of matrix n x n
     
+    %F = input('\nEither enter a Z(n,n) matrix for use in X-Y surface plot.\n Or enter "0" to continue without plotting.\n');
+    %F = X.*exp(-X.^2-Y.^2); %Example
+    F = zeros(n,n); %Example of (n x n) matrix of zeros
     surf(X,Y,F);
 end

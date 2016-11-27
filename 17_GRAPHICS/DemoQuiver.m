@@ -7,7 +7,7 @@ lambda=5;
 %% define grid
 x=linspace(-4,4,Nx);
 [X, Y]=meshgrid(x,x);
-%% Compute Vector Field
+%% Compute Example Vector Field
 Rmag=sqrt(X.*X+Y.*Y);
 ThetaHatx=-Y./Rmag;
 ThetaHaty=X./Rmag;
