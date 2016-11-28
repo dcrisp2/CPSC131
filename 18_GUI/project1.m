@@ -20,7 +20,8 @@ q = 15; %Stripped of 15 electrons, charge-->15+
 
 %Initial Parameters
 t0 = 0;
-X = [0 0 0]; %Position, meter
+X = [0 0]; %X-Y Position, meter
+s = 0; %axial position, meter
 B = [0 0 0]; %Field, tesla
 B_dipole = [0 0.2 0];
 V = [0 0 v]; %Velocity, meters/second
@@ -41,8 +42,6 @@ L(2) = 4;
 B = B_dipole;
 [A, V, X ] = set_equations(q,a,Vb,B,Xb);
 t2 = eval(solve(X(3)==sum(L),t)); %time in region 2
-
-
 
 ezTrace(2,'REGION 2: DIPOLE',X,0,t2);
 
