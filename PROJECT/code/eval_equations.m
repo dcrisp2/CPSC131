@@ -11,7 +11,7 @@ function [Vn, Xn, tn] = eval_equations(q,a,Vn, B, Xn, L, tn, h)
     syms t; %For use of t in line 20.
     [Vn(i,:), Xn(i,:) ] = get_values(X,V,tn(i));
     
-    i = i+1;
+    i = i+1; 
     Xn = extend(Xn,i);
     %Create a full 3-dim matrix of evaluations
     while Xn(i,3)<=L %NOTE: line 18 will make this true every time
