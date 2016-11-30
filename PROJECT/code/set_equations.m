@@ -1,6 +1,0 @@
-function [A, V, X] = set_equations(q,a,V0,B,X0)
-    syms t;
-    A = (q/a)*cross(V0,B);
-    V = int(A,t)+V0;
-    X = int(V,t)+X0;
-end

@@ -20,32 +20,38 @@ q = 15; %Stripped of 15 electrons, charge-->15+
 
 %Initial Parameters
 t0 = 0;
+h = 10^-8;
 nt = 1000;
 L = [8, 4, 8]; %Region Lengths
 B = [0 0 0; 0 .2 0; 0 0 0]; %Region Magnetic Field Vectors
-X = [0 0 0]; %Position, meter
-V = [0 0 v]; %Velocity, meters/second
+Xn = [0 0 0]; %Position, meter
+Vn = [0 0 v]; %Velocity, meters/second
 
-%Process Variables
-Vmag = sqrt(sum(V.^2)); %Velocity Magnitude
+%Time Variables
+Vmag = sqrt(sum(Vn.^2)); %Velocity Magnitude
 tmax = sum(L)/Vmag; %Time in beamline if Vmag || to Z
 T = linspace(t0,tmax,nt); %stepped time-space
 syms t; %Time, second
 
 %Region 1: Drift
 %   Border Values were given as input
-[A, V, X ] = set_equations(q,a,V,B(1,:),X);
-[An, Vn, Xn] = eval_equations(A, V, X);
+fprintf('\nREGION 1: DRIFT');
+[A, V, X ] = get_equations(q,a,Vn,B(1,:),Xn);
+[Vn, Xn, tn] = eval_equations(q,a, Vn, B(1,:),Xn, L(1), t0, h);
+
 t1 = eval(solve(X(3)==L(1),t)); %time in region 1
 ezTrace(1,'REGION 1: DRIFT',X,t0,t1);
-
+simplePlot( 2, text, Xn, tn);
 
 %Region 2: Dipole
-[Vb, Xb ] = get_border_values(X, V, t1);
-[A, V, X ] = set_equations(q,a,Vb,B(2,:),Xb);
+fprintf('\nREGION 2: DIPOLE');
+[Vb, Xb ] = get_values(X, V, t1);
+[A, V, X ] = get_equations(q,a,Vb,B(2,:),Xb);
+[Vn, Xn, tn] = eval_equations(q,a, Vn, B(2,:),Xn, sum(L(1:2)), tn, h);
 
 t2 = eval(solve(X(3)==L(2),t)); %time in region 2
-ezTrace(2,'REGION 2: DIPOLE',X,t1,t2);
+ezTrace(3,'REGION 2: DIPOLE',X,t1,t2);
+simplePlot( 4, text, Xn, tn);
 
 
 

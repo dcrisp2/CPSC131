@@ -10,6 +10,7 @@ function [X,t] = RungeKutta4(X,dX,t,h)
     a = 0.5;
     
     %for n = 0, 1, 2, 3,... define 'increment constants'
+    
     k1 = subs( subs(dX,t,t0), X,X0);
     k2 = subs( subs(dX,t,t0+a*h), X,X0+a*h*k1);
     k3 = subs( subs(dX,t,t0+a*h), X,X0+a*h*k2);
