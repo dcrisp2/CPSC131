@@ -1,0 +1,48 @@
+
+body {
+ color: #5c5c5c;                             /* fgReg */
+ background: #4f6067;                        /* bg0 */
+ font-family: Trebuchet MS, Helvetica, sans-serif;
+ /*font-family: Helvetica, sans-serif;*/
+ font-size: 10pt;
+}
+
+h1 {
+ font-color: #232323;                        /* fgBold */
+ font-size: 200%;
+ margin: 0em;
+}
+
+h2 {
+ font-color: #232323;                        /* fgBold */
+ font-size: 125%;
+ margin-bottom: 0em
+}
+
+h3 {
+ font-color: #232323;                        /* fgBold */
+ font-weight: bold;
+ font-size: 100%;
+ margin: 0em
+}
+
+address {
+ margin-top: 1em;
+ padding-top: 1em;
+ color: black;
+ /*border-top: thin dotted;*/
+}
+
+li {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+A:link {
+  color: #313b3f;                            /* link */
+}
+
+A:visited {
+  color: #000000;                            /* linkVisited */
+}
+

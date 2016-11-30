@@ -1,0 +1,2037 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!-- saved from url=(0033)http://www.cs.cmu.edu/~15869-f10/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>The Animation of Natural Phenomena</title>
+    
+    <link rel="stylesheet" href="./The Animation of Natural Phenomena_files/main.css">
+
+    </head>
+    <body>
+
+    <div align="center">
+    
+    <table width="90%" border="0" cellpadding="0" cellspacing="0">
+
+    <tbody><tr>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/outerTL.png"></td>
+    <td height="9" background="./The Animation of Natural Phenomena_files/outerTT.png"></td>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/outerTR.png"></td>
+    </tr>
+
+    <tr>
+    <td width="9" background="./The Animation of Natural Phenomena_files/outerLL.png"></td>
+    <td align="left" background="./The Animation of Natural Phenomena_files/outerBG.png">
+    
+
+<div align="center">
+
+<br>
+
+<!-- Title -->
+
+
+    <table width="" border="0" cellpadding="0" cellspacing="0">
+
+    <tbody><tr>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerTL.png"></td>
+    <td height="9" background="./The Animation of Natural Phenomena_files/innerTT.png"></td>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerTR.png"></td>
+    </tr>
+
+    <tr>
+    <td width="9" background="./The Animation of Natural Phenomena_files/innerLL.png"></td>
+    <td align="left" background="./The Animation of Natural Phenomena_files/innerBG.png">
+    
+	<div style="font-size: 2em; padding-bottom: 10px" align="center">
+		The Animation of Natural Phenomena
+		<br>
+	</div>
+	<table style="float: left;">
+		<tbody><tr>
+			<td style="padding-right: 10px">
+				Number:
+			</td>
+			<td style="font-size: 1.2em">
+				CSD 15-869
+			</td>
+		</tr>
+		<tr>
+			<td style="padding-right: 10px">
+				Location: 
+			</td>
+			<td style="font-size: 1.2em">
+				GHC 4215
+			</td>
+		</tr>
+		<tr>
+			<td style="padding-right: 10px">
+				Instructor:
+			</td>
+			<td style="font-size: 1.2em">
+				<a href="http://www.cs.cmu.edu/~treuille/">
+					Adrien Treuille
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td style="padding-right: 10px">
+				TA:
+			</td>
+			<td style="font-size: 1.2em">
+				Jeehyung Lee
+			</td>
+		</tr>
+		<tr>
+			<td style="padding-right: 10px">
+				Office Hours:
+			</td>
+			<td style="font-size: 1.2em">
+				Mondays 3-4pm (Smith 232)
+			</td>
+		</tr>
+		<tr>
+			<td style="padding-right: 10px">
+				Time: 
+			</td>
+			<td style="font-size: 1.2em">
+				TR 3:00 - 4:20pm
+				<span style="color: black">(Starts Sept 8!)</span>
+			</td>
+		</tr>
+	</tbody></table>
+	<img src="./The Animation of Natural Phenomena_files/class-teaser.png" style="float: right; padding-left: 10px">
+
+    </td>
+    <td width="9" background="./The Animation of Natural Phenomena_files/innerRR.png"></td>
+    </tr>
+
+    <tr>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerBL.png"></td>
+    <td height="9" background="./The Animation of Natural Phenomena_files/innerBB.png"></td>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerBR.png"></td>
+    </tr>
+
+    </tbody></table>
+    
+
+<!-- Summary -->
+
+
+    <p>
+    </p><table border="0" cellpadding="0" cellspacing="5" width="98%">
+    <tbody><tr><td align="left">
+    <h2>Summary</h2>
+    </td></tr>
+    <tr>
+    <td align="center">
+    
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+    <tbody><tr>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerTL.png"></td>
+    <td height="9" background="./The Animation of Natural Phenomena_files/innerTT.png"></td>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerTR.png"></td>
+    </tr>
+
+    <tr>
+    <td width="9" background="./The Animation of Natural Phenomena_files/innerLL.png"></td>
+    <td align="left" background="./The Animation of Natural Phenomena_files/innerBG.png">
+    
+This class covers physical simulation in computer graphics. The goal is to teach a broad swath of  techniques—from particle systems to human animation—while learning some math, working on fun projects, and practicing quick problem solving and public presentation skills.
+
+    </td>
+    <td width="9" background="./The Animation of Natural Phenomena_files/innerRR.png"></td>
+    </tr>
+
+    <tr>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerBL.png"></td>
+    <td height="9" background="./The Animation of Natural Phenomena_files/innerBB.png"></td>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerBR.png"></td>
+    </tr>
+
+    </tbody></table>
+    
+    </td>
+    </tr>
+    </tbody></table>
+    <p></p>
+    
+
+<!-- Overview -->
+
+
+    <p>
+    </p><table border="0" cellpadding="0" cellspacing="5" width="98%">
+    <tbody><tr><td align="left">
+    <h2>Overview</h2>
+    </td></tr>
+    <tr>
+    <td align="center">
+    
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+    <tbody><tr>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerTL.png"></td>
+    <td height="9" background="./The Animation of Natural Phenomena_files/innerTT.png"></td>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerTR.png"></td>
+    </tr>
+
+    <tr>
+    <td width="9" background="./The Animation of Natural Phenomena_files/innerLL.png"></td>
+    <td align="left" background="./The Animation of Natural Phenomena_files/innerBG.png">
+    
+The class is organized in a pipeline fashion. Each class starts with a class presentation on the previous class's topic. These presentations should deepen your understanding of the state-of-the-art. Then we'll have a lecture. Finally, we'll try to answer a question on the next week's topic--essentially challenging you to solve the problem better than the existing techniques.
+
+<br><br>
+
+Graphically, this looks like this:
+
+<style type="text/css">
+	table.pipeline {
+		border: 1px solid black;
+		margin: 15px 15px 15px 15px;
+	}
+
+	table.pipeline td {
+		padding: 5px 5px 5px 5px;
+	}
+
+	table.pipeline th {
+		align: center;
+	}
+
+	td.topic1 { color: black; background-color: rgb(213, 253, 186); }
+	td.topic2 { color: black; background-color: rgb(200, 251, 224); }
+	td.topic3 { color: black; background-color: rgb(205, 226, 249); }
+	td.topic4 { color: black; background-color: rgb(220, 206, 248); }
+	td.topic5 { color: black; background-color: rgb(240, 208, 226); }
+
+	
+</style>
+
+<table class="pipeline">
+	<tbody><tr>
+		<td></td>
+		<th>Class <i>n</i></th>
+		<th>Class <i>n+1</i></th>
+		<th>Class <i>n+2</i></th>
+	</tr>
+	<tr>
+		<th>30 mins</th>
+		<td class="topic1">Paper Presentation</td>
+		<td class="topic2">Paper Presentation</td>
+		<td class="topic3">Paper Presentation</td>
+	</tr>
+	<tr>
+		<th>30 mins</th>
+		<td class="topic2">Lecture</td>
+		<td class="topic3">Lecture</td>
+		<td class="topic4">Lecture</td>
+	</tr>
+	<tr>
+		<th>20 mins</th>
+		<td class="topic3">Question</td>
+		<td class="topic4">Question</td>
+		<td class="topic5">Question</td>
+	</tr>
+</tbody></table>
+
+<table class="pipeline">
+	<tbody><tr>
+		<td class="topic1">Topic A</td>
+		<td class="topic2">Topic B</td>
+		<td class="topic3">Topic C</td>
+		<td class="topic4">Topic D</td>
+		<td class="topic5">Topic E</td>
+	</tr>
+</tbody></table>
+
+Grading is computed as follows:
+
+<ul>
+	<li> <span style="color: black">(24%)</span> Project 1.           </li>
+	<li> <span style="color: black">(24%)</span> Project 2.           </li>
+	<li> <span style="color: black">(36%)</span> Final Project.       </li>
+	<ul>
+		<li> <span style="color: black">(5%)</span> Checkpoint.       </li>
+		<li> <span style="color: black">(31%)</span> Final.           </li>
+	</ul>
+	<li> <span style="color: black">(16%)</span> Class Presentation / Participation. </li>
+</ul>
+
+Grading for late projects must be negotiated with me <i>before</i> the project is due.
+
+
+    </td>
+    <td width="9" background="./The Animation of Natural Phenomena_files/innerRR.png"></td>
+    </tr>
+
+    <tr>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerBL.png"></td>
+    <td height="9" background="./The Animation of Natural Phenomena_files/innerBB.png"></td>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerBR.png"></td>
+    </tr>
+
+    </tbody></table>
+    
+    </td>
+    </tr>
+    </tbody></table>
+    <p></p>
+    
+
+<!-- Project 1 Winners -->
+
+
+    <p>
+    </p><table border="0" cellpadding="0" cellspacing="5" width="98%">
+    <tbody><tr><td align="left">
+    <h2>Project 1 Winners</h2>
+    </td></tr>
+    <tr>
+    <td align="center">
+    
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+    <tbody><tr>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerTL.png"></td>
+    <td height="9" background="./The Animation of Natural Phenomena_files/innerTT.png"></td>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerTR.png"></td>
+    </tr>
+
+    <tr>
+    <td width="9" background="./The Animation of Natural Phenomena_files/innerLL.png"></td>
+    <td align="left" background="./The Animation of Natural Phenomena_files/innerBG.png">
+    
+	<div>
+	Note: See all project 1 videos
+		<a href="http://www.youtube.com/view_play_list?p=541DECDEDA791090">here</a>.
+	</div>
+
+	<p>
+	</p><div style="color:black;font-size:150%;padding-bottom:5px">
+		Gene Han
+	</div>
+	<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/6sp8ULfBw_o?fs=1&amp;hl=en_US"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="http://www.youtube.com/v/6sp8ULfBw_o?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></object>
+	<p></p>
+	
+	<p>
+	</p><div style="color:black;font-size:150%;padding-bottom:5px">
+		Wayne Huang
+	</div>
+	<object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/FOZdTJl5_ww?fs=1&amp;hl=en_US"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="http://www.youtube.com/v/FOZdTJl5_ww?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></object>
+	<p></p>
+	
+	<p>
+	</p><div style="color:black;font-size:150%;padding-bottom:5px">
+		Desai Chen
+	</div>
+	<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/HBgF7DOuHoc?fs=1&amp;hl=en_US"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="http://www.youtube.com/v/HBgF7DOuHoc?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></object>
+	<p></p>
+
+    </td>
+    <td width="9" background="./The Animation of Natural Phenomena_files/innerRR.png"></td>
+    </tr>
+
+    <tr>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerBL.png"></td>
+    <td height="9" background="./The Animation of Natural Phenomena_files/innerBB.png"></td>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerBR.png"></td>
+    </tr>
+
+    </tbody></table>
+    
+    </td>
+    </tr>
+    </tbody></table>
+    <p></p>
+    
+
+<!-- Project 2 Winners -->
+
+
+    <p>
+    </p><table border="0" cellpadding="0" cellspacing="5" width="98%">
+    <tbody><tr><td align="left">
+    <h2>Project 2 Winners</h2>
+    </td></tr>
+    <tr>
+    <td align="center">
+    
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+    <tbody><tr>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerTL.png"></td>
+    <td height="9" background="./The Animation of Natural Phenomena_files/innerTT.png"></td>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerTR.png"></td>
+    </tr>
+
+    <tr>
+    <td width="9" background="./The Animation of Natural Phenomena_files/innerLL.png"></td>
+    <td align="left" background="./The Animation of Natural Phenomena_files/innerBG.png">
+    
+	<div>
+	Note: See all project 2 videos
+		<a href="http://www.youtube.com/view_play_list?p=C2CFE2CDA16397F3">here</a>.
+	</div>
+
+	<p>
+	</p><div style="color:black;font-size:150%;padding-bottom:5px">
+		Alfred Barnat
+	</div>
+	<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/AJGzi_O8lIA?fs=1&amp;hl=en_US"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="http://www.youtube.com/v/AJGzi_O8lIA?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></object>
+	<p></p>
+	
+	<p>
+	</p><div style="color:black;font-size:150%;padding-bottom:5px">
+		Zizzy Yang
+	</div>
+	<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/mDOCmVg59hc?fs=1&amp;hl=en_US"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="http://www.youtube.com/v/mDOCmVg59hc?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></object>
+	<p></p>
+	
+	<p>
+	</p><div style="color:black;font-size:150%;padding-bottom:5px">
+		Ross Adelman
+	</div>
+	<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/gOs7rGDr2JA?fs=1&amp;hl=en_US"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="http://www.youtube.com/v/gOs7rGDr2JA?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></object>
+	<p></p>
+
+	<p>
+	</p><div style="color:black;font-size:150%;padding-bottom:5px">
+		Duncan Boehle
+	</div>
+	<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/YeaD63pr-yw?fs=1&amp;hl=en_US"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="http://www.youtube.com/v/YeaD63pr-yw?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></object>
+	<p></p>
+
+    </td>
+    <td width="9" background="./The Animation of Natural Phenomena_files/innerRR.png"></td>
+    </tr>
+
+    <tr>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerBL.png"></td>
+    <td height="9" background="./The Animation of Natural Phenomena_files/innerBB.png"></td>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerBR.png"></td>
+    </tr>
+
+    </tbody></table>
+    
+    </td>
+    </tr>
+    </tbody></table>
+    <p></p>
+    
+
+<!-- Syllabus -->
+
+
+    <p>
+    </p><table border="0" cellpadding="0" cellspacing="5" width="98%">
+    <tbody><tr><td align="left">
+    <h2>Syllabus</h2>
+    </td></tr>
+    <tr>
+    <td align="center">
+    
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+    <tbody><tr>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerTL.png"></td>
+    <td height="9" background="./The Animation of Natural Phenomena_files/innerTT.png"></td>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerTR.png"></td>
+    </tr>
+
+    <tr>
+    <td width="9" background="./The Animation of Natural Phenomena_files/innerLL.png"></td>
+    <td align="left" background="./The Animation of Natural Phenomena_files/innerBG.png">
+    
+
+	<br>
+	<div style="font-size: 1.2em">
+	Note: 
+	<span style="color: red">
+		This syllabus may change during the course. Keep checking back.
+	</span>
+	<br><br>
+</div>
+
+<table>
+
+	<tbody><tr>
+		<td colspan="2">
+			&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" style="background-color: rgb(28,36,34); padding: 4px">
+			<span style="font-size: 1.4em; color: white">Background</span>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/intro.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Introduction</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Thu 09/09</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/00/lec00.pdf">Lecture 0 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Notes:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/00/lec00-notes.pdf">Lecture 0 Notes</a></span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/implicit.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Differential Equations</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Tue 09/14</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/01/lec01.pdf">Lecture 1 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Notes:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/01/lec01-notes.pdf">Lecture 1 Notes</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Notes:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/01/eulers-method.pdf">Euler's Method</a></span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/particles.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Particles, Implicit, and Symplectic Integration</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Thu 09/16</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/02/lec02.pdf">Lecture 2 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Notes:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/02/integration.pdf">Integration Spreadsheet</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Wayne Huang (<a href="http://www.cs.rutgers.edu/~dpai/papers/KnottPai03.pdf">CInDeR: Collision and Interference Detection in Real-time using Graphics Hardware</a>)</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/large-linear-systems.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Large Linear Systems</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Tue 09/21</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/03/lec03.pdf">Lecture 3 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Notes:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/03/lec03-notes.pdf">Lecture 3 Notes</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Notes:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/03/cg-example.pdf">Conjugate Gradient</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Jeff Lio (<a href="http://www.ma1.upc.edu/~susin/files/AdvancedCharacterPhysics.pdf">Advanced Character Physics</a>)</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/constraints.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Constraints</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Thu 09/23</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/04/lec04.pdf">Lecture 4 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Notes:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/04/constraints-notes.pdf">Constraints Notes</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Reading:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://graphics.cs.cmu.edu/courses/15-869/lec/02/notesb.pdf">Differential Equation Basics</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Reading:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://graphics.cs.cmu.edu/courses/15-869/lec/03/notesd.pdf">Implicit Methods for Differential Equations</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Yantong Liu (<a href="http://digitalcommons.trinity.edu/cgi/viewcontent.cgi?article=1019&amp;context=compsci_honors">Astrophysical System Simulated on Graphics Hardware</a>)</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td colspan="2">
+			&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" style="background-color: rgb(28,36,34); padding: 4px">
+			<span style="font-size: 1.4em; color: white">Particles</span>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/hair.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Hair</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Tue 09/28</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Reading:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://graphics.cs.cmu.edu/courses/15-869/lec/04/notesf.pdf">Constrained Dynamics (sections 1-4 only)</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/05/lec05.pdf">Lecture 5 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Gene Han (<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.84.1732&amp;rep=rep1&amp;type=pdf">Deformation Constraints in a Mass-Spring Model to Describe Rigid Cloth Behavior</a>)</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Project:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: red">Project 1 Assigned</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Project:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/proj01/proj01.pdf">Project 1 Description</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Project:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/proj01/project1-TinkerToy-skeleton.zip">Project 1 Skeleton Code</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Project:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/proj01/conjugate-gradient-code-example.pdf">Conjugate Gradient Example Code</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Project:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/proj01/painless-conjugate-gradient.pdf">Project 1 Supplemental Reading: An Introduction to the Conjugate Gradient Method Without the Agonizing Pain</a></span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/cloth-collisions.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Cloth and Collisions</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Thu 09/30</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/06/lec06.pdf">Lecture 6 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Val Reznitskaya (<a href="http://physbam.stanford.edu/~fedkiw/papers/stanford2008-02.pdf">A Mass Spring Model for Hair Simulation</a>)</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/crowds.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Crowds and Flocks</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Tue 10/05</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/07/lec07.pdf">Lecture 7 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Andrew Wesson (<a href="http://mrl.snu.ac.kr/research/ProjectGroupMotionEditing/index.htm">Group Motion Editting</a>)</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/adrien-gone-1.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black"><span style="color:red">No Class (Adrien out of Town)</span></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Thu 10/07</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td colspan="2">
+			&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" style="background-color: rgb(28,36,34); padding: 4px">
+			<span style="font-size: 1.4em; color: white">Fluids</span>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/fluids-particle.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Particle-Based Fluids</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Tue 10/12</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/08/lec08.pdf">Lecture 8 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Ford Hu (<a href="http://www.cs.cornell.edu/projects/YarnCloth/">Simulating Knitted Cloth at the Yarn Level</a>)</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Zizhuang Yang (<a href="http://gamma.cs.unc.edu/CA/">ClearPath: Highly Parallel Collision Avoidance for Multi-Agent Simulation</a>)</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Project:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: red">Project 1 Due</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/adrien-gone-2.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black"><span style="color:red">No Class (Adrien out of Town)</span></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Thu 10/14</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/fluids-finite-difference.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Partial Differential Equation Basics</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Tue 10/19</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/09/lec09.pdf">Lecture 9 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Prahlad Menon (<a href="http://www.cemyuksel.com/research/waveparticles">Wave Particles</a>)</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/fluids-stable-smaller.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Stable Fluids</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Thu 10/21</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/10/lec10.pdf">Lecture 10 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Notes:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/10/lec10-notes.pdf">Lecture 10 Notes</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Ross Adelman (<a href="http://www.cs.cornell.edu/projects/HarmonicFluids/">Harmonic Fluids</a>)</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Freeson Wang (<a href="http://www.disneyanimation.com/library/detailPreservingContiniumHair.pdf">Detail Preserving Continuum Simulation of Straight Hair</a>)</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Project:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: red">Project 2 Assigned</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Project:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/proj02/Project2Handout.pdf">Project 2 Description</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Project:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/proj02/Project2v4.zip">Project 2 Skeleton Code</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Reading:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://http.developer.nvidia.com/GPUGems/gpugems_ch38.html">Stable Fluids Supplemental Reading</a></span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/free-surface-fluids.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Boundaries and Free Surface Fluids</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Tue 10/26</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/11/lec11.pdf">Lecture 11 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Alfred Barnat (<a href="http://www.cs.huji.ac.il/labs/cglab/research/tdsmoke/">Target Driven Smoke Animation</a>)</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td colspan="2">
+			&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" style="background-color: rgb(28,36,34); padding: 4px">
+			<span style="font-size: 1.4em; color: white">Rigid Bodies</span>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/rigid-bodies.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Rigid Bodies</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Thu 10/28</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/12/lec12.pdf">Lecture 12 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Jake Poznanski (<a href="http://www.bryanfeldman.com/research.html">Animation of Suspended Particle Explosions</a>)</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Desai Chen (<a href="http://graphics.ethz.ch/~thuereyn/download/nthuerey_050607_tr1rtlbm.pdf">Interactive Free Surface Fluids with the Lattice Boltzmann Method</a>)</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/rigid-body-collisions.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Rigid Body Collisions</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Tue 11/02</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/13/lec13.pdf">Lecture 13 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Reading:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://graphics.cs.cmu.edu/courses/15-869/lec/13/notesg.pdf">Rigid Body Simulation (Baraff) (pages G1-G67)</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Duncan M Boehle (<a href="http://physbam.stanford.edu/~fedkiw/papers/stanford2005-02.pdf">Coupling Water and Smoke to Thin Deformable and Rigid Shells</a>)</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td colspan="2">
+			&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" style="background-color: rgb(28,36,34); padding: 4px">
+			<span style="font-size: 1.4em; color: white">Deformation</span>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/deformable-boundary.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Deformable Objects</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Thu 11/04</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/14/lec14.pdf">Lecture 14 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Timothy Luciani (<a href="http://portal.acm.org/citation.cfm?id=1142007">Resolving surface collisions through intersection contour minimization</a>)</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Project:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: red">Project 2 Due</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/deformable-volume.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Deformable Volumes</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Tue 11/09</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/15/lec15.pdf">Lecture 15 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Ilya Gershgorin (<a href="http://graphics.stanford.edu/papers/rigid_bodies-sig03/">Nonconvex Rigid Bodies with Stacking</a>)</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">James Moffatt (<a href="http://www.cs.ubc.ca/~kkyin/papers/Xu_SIG09.pdf">Joint-aware Manipulation of Deformable Models</a>)</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Project:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: red">Project 3 Assigned</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Project:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/proj03/project3handout-revised.pdf">Project 3 Description <b>(REVISED!)</b></a></span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/deformable-collisions.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Deformable Collisions</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Thu 11/11</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/16/lec16.pdf">Lecture 16 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">David Klionsky (<a href="http://physbam.stanford.edu/~fedkiw/papers/stanford2007-01.pdf">Volume Conserving Finite Element Simulation of Deformable Models</a>)</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td colspan="2">
+			&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" style="background-color: rgb(28,36,34); padding: 4px">
+			<span style="font-size: 1.4em; color: white">Humans</span>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/human-capture.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Human Performance Capture and Data-Driven Human Animation</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Tue 11/16</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/17/lec17.pdf">Lecture 17 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Steven Lu (<a href="http://http.developer.nvidia.com/GPUGems3/gpugems3_ch29.html">Real-Time Rigid Body Simulation on GPUs</a>)</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Ken Toh (<a href="http://gamma.cs.unc.edu/DeformSynth/">Constraint-Based Motion Synthesis for Deformable Models</a>)</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/human-physics.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Physics-Based Human Animation</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Thu 11/18</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/18/lec18.pdf">Lecture 18 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Debraj Bose (<a href="http://www.matthiasmueller.info/">Meshless Deformation</a>)</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Sophie Wang (<a href="http://people.csail.mit.edu/wojciech/MeshAnim/index.html">Articulated Mesh Animation from Multi-view Silhouettes</a>)</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Project:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: red">Project 3 Midpoint Check</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td colspan="2">
+			&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" style="background-color: rgb(28,36,34); padding: 4px">
+			<span style="font-size: 1.4em; color: white">Advanced</span>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/walk.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Control</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Tue 11/23</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/19/lec19.pdf">Lecture 19 Slides</a></span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/thanksgiving.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black"><span style="color:red">No Class (Thanksgiving)</span></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Thu 11/25</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/model-reduction.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Model Reduction</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Tue 11/30</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Slides:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.cs.cmu.edu/~15869-f10/lec/20/lec20.pdf">Lecture 20 Slides</a></span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Presentation:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Eric Butler (<a href="http://graphics.cs.cmu.edu/projects/mwb/">Many-Worlds Browsing for Control of Multibody Dynamics</a>)</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/amd.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">AMD Lecture: OpenCL Programming</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Thu 12/02</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Link:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black"><a href="http://www.khronos.org/opencl/">OpenCL Website</a></span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<img src="./The Animation of Natural Phenomena_files/final-project.png">
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				
+		<tbody><tr>
+			<td width="85px">
+				Name:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: black">Final Project Presentations</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Date:
+			</td>
+			<td>
+				<span style="font-size: 1.1em; color: black">Tue 12/07</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Time:
+			</td>
+			<td>
+				<span style="font-size: 1.4em; color: blue">1pm - 4pm</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Location:
+			</td>
+			<td>
+				<span style="font-size: 1.4em; color: blue">DH A310</span><br>
+			</td>
+		</tr>
+	
+		<tr>
+			<td width="85px">
+				Project:
+			</td>
+			<td>
+				<span style="font-size: 1.3em; color: red">Project 3 Due</span><br>
+			</td>
+		</tr>
+	
+			</tbody></table>
+		</td>
+	</tr>
+	
+</tbody></table>
+
+    </td>
+    <td width="9" background="./The Animation of Natural Phenomena_files/innerRR.png"></td>
+    </tr>
+
+    <tr>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerBL.png"></td>
+    <td height="9" background="./The Animation of Natural Phenomena_files/innerBB.png"></td>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/innerBR.png"></td>
+    </tr>
+
+    </tbody></table>
+    
+    </td>
+    </tr>
+    </tbody></table>
+    <p></p>
+    
+
+</div> <!-- center -->
+
+
+    </td>
+    <td width="9" background="./The Animation of Natural Phenomena_files/outerRR.png"></td>
+    </tr>
+
+    <tr>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/outerBL.png"></td>
+    <td height="9" background="./The Animation of Natural Phenomena_files/outerBB.png"></td>
+    <td width="9" height="9" background="./The Animation of Natural Phenomena_files/outerBR.png"></td>
+    </tr>
+
+    </tbody></table>
+    
+    </div>
+    
+    <address>Last updated: Dec 10, 2010</address>
+    
+    
+    </body></html>

@@ -1,10 +1,5 @@
 %project.m
 %Author:    Daniel Crisp
-%
-%NOTES
-%E = 12*10^3; %12KeV
-%p_si = 5.344286*10^-28; %eV/c to kg*m/s
-%
 
 %Clear Workspace & Console
 clear; clc;
