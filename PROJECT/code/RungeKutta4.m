@@ -11,6 +11,12 @@ function [X1,t1] = RungeKutta4(X,dX,t0,h)
     ta = t0+a*h;
     
     %for n = 0, 1, 2, 3,... define 'increment constants'
+    %   NOTE: May have found a hint at a better way of entry (returning
+    %   more readable values too
+    %       syms var1 var2
+    %       f = (3060513257434037*var1^2)/1125899906842624 + var1 + ...
+    %       (3060513257434037*var2^2)/1125899906842624 + var2 + ...
+    %       4186413164276661/1125899906842624;
     k1 = eval(subs(dX,t,t0)*t0 + X0);
     k2 = eval(subs(dX,t,ta)*ta + X0+a*h*k1);
     k3 = eval(subs(dX,t,ta)*ta + X0+a*h*k2);
