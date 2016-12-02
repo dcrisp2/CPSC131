@@ -20,15 +20,7 @@ function [Vn, Xn, tn] = eval_equations(q,a,Vn, B, Xn, L, tn, h)
         Vn(i,:) = eval(subs(V,t,tn(i)));
         if Xn(i,3)<L %Only advance Xn if expecting another loop.
             i = i+1;
-        	Xn = extend(Xn,i);
+        	Xn = extend(Xn,i,2);
         end
-    end
-end
-
-function [Xn] = extend(Xn, i)
-    try 
-    	not(Xn(i,3))
-    catch
-    	Xn(i,3) = 0;
     end
 end
