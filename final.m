@@ -105,12 +105,48 @@ clc;
 
 %% Question 2a
 
-% WCF = 35.7 + 0.6*T - 35.7*V^0.16 + 0.43*T*V^0.16;
 % function WCF = WindChill(T, V)
 %     
-%     WCF = 35.7 + 0.6*T - 35.7*V^0.16 + 0.43*T*V^0.16;
+%     %WCF = 35.7 + 0.6*T' - 35.7*V.^0.16 + 0.43*T'*V.^0.16;
+%     [X,Y] = meshgrid(V,T);
+%     xn = length(X(1,:));
+%     yn = length(Y(:,1));
+%     for xi = 1:xn
+%         for yi = 1:yn
+%             WCF(xi,yi) = 35.7 + 0.6*Y(yi) - 35.7*X(xi).^0.16 + 0.43*Y(yi)*X(xi).^0.16;
+%         end
+%     end
 %     
+%     WCF = [[0,V];T',WCF];
+%     disp(WCF);
 % end
+% T = -20:5:55;
+% V = 0:5:55;
+% WCF = WindChill(T,V);
+
+%OUTPUT:
+%...very large table. Not putting it in here. see FINAL.docx.
+
+
+%% Question 2b
+
+% Write a program to create a meshgrid and sruface plot of the WCFs with
+% the above ranges for temperature and wind speed. Use shading flat and
+% your choice of collormap. Tite and label your plot. Note: this does not
+% need to be part of your function from a.
+
 T = -20:5:55;
 V = 0:5:55;
-WCF = WindChill(T,V);
+
+%by changing function definition to:
+%	function [X,Y,WCF] = WindChill(T, V)
+%and commenting out this line: WCF = [[0,V];T',WCF'];
+%   I get to have X Y and Z that work for Q-2a
+
+%[X, Y, WCF] = WindChill(T,V);
+tn = length(T);
+vn = length(V);
+
+fun = @(V,T) 35.7 + 0.6*T(1:) - 35.7*V(:).^0.16 + 0.43*T(:)*V(:).^0.16;
+fun(V,T);
+
