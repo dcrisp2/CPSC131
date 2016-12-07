@@ -136,7 +136,7 @@ clc;
 % need to be part of your function from a.
 
 T = -20:5:55;
-V = 0:5:55;
+V = 0:5:75;
 
 %by changing function definition to:
 %	function [X,Y,WCF] = WindChill(T, V)
@@ -144,9 +144,12 @@ V = 0:5:55;
 %   I get to have X Y and Z that work for Q-2a
 
 %[X, Y, WCF] = WindChill(T,V);
-tn = length(T);
-vn = length(V);
+tn = length(T); %16..
+vn = length(V); %12..
 
-fun = @(V,T) 35.7 + 0.6*T(1:) - 35.7*V(:).^0.16 + 0.43*T(:)*V(:).^0.16;
-fun(V,T);
+%fun = @(V,T) 35.7 + 0.6*T(1:tn) - 35.7*V(1:vn).^0.16 + 0.43*T(1:tn)*V(1:vn).^0.16;
+%fun(V,T);
+[V, T, Z] = WindChill(T,V); %returns meshgrid(x,y)
+F = 35.7 + 0.6*T - 35.7*V.^0.16 + 0.43*T.*V.^0.16;
 
+surf(V,T,Z);
