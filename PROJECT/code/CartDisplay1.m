@@ -16,4 +16,3 @@ plot(handles.axes1,[x1,x2],[y1,y2],'r-');
 plot(handles.axes1,[x2-0.05,x2+.05,x2+.05,x2-.05,x2-.05],[y2-0.05,y2-0.05,y2+0.05,y2+0.05,y2-0.05],'-');
 pause(0.01);
 end
-

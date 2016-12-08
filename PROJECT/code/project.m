@@ -18,11 +18,11 @@ q = 15; %Stripped of 15 electrons, charge-->15+
 t0 = 0;
 h = 10^-9;
 L = [8, 4, 8]; %Region Lengths
-B = [0 0 0; 0 .3 0; 0 0 0]; %Region Magnetic Field Vectors
+B = [0 0 0; 0 .4 0; 0 0 0]; %Region Magnetic Field Vectors
 X0 = [0 0 0]; %Position, meter
-    X1(1,:) = X0;
+    Xn(1,:) = X0;
 V0 = [0 0 v]; %Velocity, meters/second
-    V1(1,:) = V0;
+    Vn(1,:) = V0;
 
 %Time Variables
 %Vmag = sqrt(sum(V0.^2)); %Velocity Magnitude (for KE)
@@ -68,7 +68,7 @@ for i=nums(1)+2:sum(nums(1:2))
     Xn(i,:) = eval(subs(X2,t,T(i)));% Xn(nums(1)+1,:) should = X0
 end
 
-%R1 stepped positions + times
+%R2 stepped positions + times
 [time, Xpos, Ypos, Zpos] = get_vals(T,Xn,1,length(T));
 %plot time vs. Z, and Z vs. X
 justPlot(2,time,Zpos,Zpos,Xpos);

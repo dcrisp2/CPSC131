@@ -78,13 +78,37 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % Update handles structure
 guidata(hObject, handles);
 
+% Set Parameters
+syms t;
+c = 2.99792458 * 10^8; %Speed of light (m/s)
+beta = 0.02; %Fractional Speed w.r.t. 'c'
+v = beta*c; %Speed on ions (m/s)
+t0 = 0;
+h = 10^-9;
+L = [8, 4, 8]; %Region Lengths
+B = [0 0 0; 0 .2 0; 0 0 0]; %Region Magnetic Field Vectors
+X0 = [0 0 0]; %Position, meter
+    X1(1,:) = X0;
+V0 = [0 0 v]; %Velocity, meters/second
+    V1(1,:) = V0;
+
+%Ion Species
+a = 39; %Mass of Radioactive Potassium
+q = 15; %Stripped of 15 electrons, charge-->15+
+
+% Get User Values
 n1=str2num(get(handles.xx,'String'));
 n2=str2num(get(handles.yy,'String'));
 n3=str2num(get(handles.dx,'String'));
 n4=str2num(get(handles.dy,'String'));
 n5=str2num(get(handles.dz,'String'));
 
-dt =0.01;
+X0 = [n1 n2 0];
+    X1(1,:) = X0;
+V0 = [n3*c n4*c n5*c];
+    V1(1,:) = V0;
+
+dt = 0.01;
 X=[n1;n2;n3;n4;n5];
 for i=1:1000
     dX=CartDynamics(X);
