@@ -1,0 +1,52 @@
+Strting with one particle
+
+X, a 1x3 position array
+V, a 1x3 vector
+B, a 1x3 vector
+
+We know newton's force, F = ma.
+Using Lorentz, F = q*(V x B) + q*E... and knowing that we are ignoring any electrostatic fields...
+	(being single particle, there are no space charge effects from neighboring particles)
+	(we are not assuming any electrostatic elements like quadrupoles or correctors)
+	We determine that: Acceleration = (q/m)*(V x B), and thus, V = int(A,t), X = int(V,t)*t
+
+IF you have no field in a given region... There is no acceleration in any direction, B = 0;
+IF you do have field in a region, there IS acceleration that is ALWAYS PERPENDICULAR to your velocity. A magnetic field CAN NOT ADD ENERGY.
+
+By looking at a position graph, you can see how the velocity vector turns throughout the path. If you did not re-calculate the force, you would be adding energy to your particle just like you would for gravity!
+
+Though we don't need to do be re-calculating our 6-space in non-field regions, we will for consistency throughout.
+
+for t:end
+Xx; Xy; Xz; Vx; Vy; Vz
+F/m
+
+So we consider X the independant variable, and use consistent steps in time.
+Evaluating our 6-space at each step in time is sufficient until we need to introduce the field region, how do we define this border?
+
+We do have this a bit simplified, and assume an ideal step function--no field outside, full and uniform field inside. This will help, and keep out any second order focusing effects that are typically experienced at the endge of a dipoles field.
+
+Solving for the time it takes for a particle of velocity V(t) to traverse the 1-Dim length I refer to as L[1] is not sufficient, with different initial angles, one can see that I'd be assuming some concave border..
+
+Saying if Z > 1-dim length, would work for this border, but this answer isn't specific enough for how we exit the dipole...
+
+If we use too little field, we may pass through the field region with little to no bending, and the first definition would hold assuming a square shape.
+But if we have too much field, or are trying to make a 90deg bend (the more interesting and realistic case here), we will never pass the Z border as defined.
+To solve this, we have a couple options.
+	either refer to a position relationship at each iteration of our 6-space, introcuding the new field component whenever meeting said relationship.
+	or create a field map throughout all expected space
+		When doing many particle dynamics, many codes do what's called particle in cell (PIC). where space is devided into ixjxk cells. There are variations between PIC codes that are based on which calculated force will be experienced by the particles within the cell, whether it's based on the field values calculated at their cell's corner they're closest to, the average of all 6 corners, or something else. One solution may be better than another depending on your assumptions, can you going fast enough to neglect the effect of longitudinally displaced charges, do you care about the laminar flow of particles within your beam pulse?
+	Though the second is far more concrete, and would allow for not just second order focusing but even any unintended 3rd, or 4th order effects.. while also allowing us to increase the number of particles we're simulating.. we'd be loosing the benefits our simplistic system lends us by not choosing the first and can expand to other options later.
+	
+Stability:
+Using euler's we'd take our i'th evaluated 6-space, and add to it the re-evaluated 6-space at that time + delta_t, and repeat. The issue is that there would be a very high error when using this in our uniform field region scenario as our returned position will always be as if it were progressively less bent compared to reality.
+
+Using a traditional RK4 is better in the sense that it will be closer to reality but will still have the same growing error as Euler.
+
+Some options may be to shift our weighted evaluations like the four used in RK4 by a negative delta_t. Where at least one of the four evaluations are made with a negative time value w.r.t. the time of your initial 6-space, as opposed to having them all evaluated at some positive delta_t. This allows not just a closer fit, but can really improve your calculations at points where your field vector changes quickly (i.e. a the border of some field region). Some optimizations requiring the ability to reverse time may also become possible. i.e. you wanted to define your final parameters and have your initial parameters returned.
+
+Delta_ideal... Assume you know the ideal trajectory, and choose to bend space such that an ideal particle is always moving in +Z. Now, knowing your particles (q/a), or charge over mass; your momentum, energy, or velocity; and can assume your ideal trajectory is truely ideal for your system. Changes in field from the ideal result in meaningful units of transverse displacement. Beam loss for many-particle simulations could be determined by excluding those whose transverse displacement grows higher than the radius of your beam pipe. And, a reference point would be available for recognizing large errors in 
+	
+
+
+
